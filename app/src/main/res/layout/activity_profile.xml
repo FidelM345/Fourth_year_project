@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.widget.LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.widget.LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:background="@color/colorPrimary"
+        android:layout_weight="1"
+        android:layout_height="0dp">
+
+
+        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/profile_circular"
+            android:layout_width="120dp"
+            android:layout_height="0dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:scaleType="centerCrop"
+            android:src="@drawable/profile_placeholder"
+            app:civ_border_color="#FFFFFFFF"
+            app:civ_border_width="5dp" />
+
+
+    </android.widget.LinearLayout>
+
+
+
+    <ScrollView
+        android:layout_weight="3"
+        android:layout_height="0dp"
+        android:layout_width="match_parent"
+       >
+
+
+        <android.widget.LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:paddingTop="8dp"
+            android:layout_height="match_parent">
+
+            <ProgressBar
+                android:id="@+id/profile_progressBar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:indeterminate="true"
+                android:visibility="invisible" />
+
+
+            <LinearLayout
+                android:layout_margin="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center_vertical"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/nameicon" />
+
+
+                <EditText
+                    android:id="@+id/profile_fname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="First Name..." />
+
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_margin="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center_vertical"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/nameicon" />
+
+
+                <EditText
+                    android:id="@+id/profile_lname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Last Name..." />
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_margin="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center_vertical"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/phone_no2" />
+
+
+                <EditText
+                    android:id="@+id/profile_phoneno"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Phone No..."
+                    android:inputType="phone" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_margin="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/btn_location"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center_vertical"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/locationicon" />
+
+
+                <EditText
+                    android:id="@+id/profile_gps"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Click icon to take your location.."
+                    android:inputType="phone" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_margin="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center_vertical"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ageicon" />
+
+
+                <EditText
+                    android:id="@+id/profile_age"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter Age..."
+                    android:inputType="number" />
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_margin="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center_vertical"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/weighticon" />
+
+
+                <EditText
+                    android:id="@+id/profile_weight"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter Weight..."
+                    android:inputType="number" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_marginTop="2dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center_vertical"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/bloodgroupicon" />
+
+                <Spinner
+                    android:prompt="@string/blood_group"
+                    android:id="@+id/profile_blood_group"
+                    style="@style/spinner_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    android:entries="@array/array_blood_group"
+                    android:spinnerMode="dialog" />
+
+
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="2dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center_vertical"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/locationicon" />
+
+                <Spinner
+                    android:prompt="@string/rhesus"
+                    android:id="@+id/profile_rhesus"
+                    style="@style/spinner_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    android:entries="@array/array_rhesus"
+                    android:spinnerMode="dialog" />
+
+
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="2dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center_vertical"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/gendericon" />
+
+                <Spinner
+                    android:prompt="@string/gender"
+                    android:id="@+id/profile_gender"
+                    style="@style/spinner_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    android:entries="@array/array_gender"
+                    android:spinnerMode="dialog" />
+
+
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_marginTop="2dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <CheckBox
+                    android:id="@+id/profile_check"
+                    android:layout_width="30dp"
+                    android:layout_height="20dp"
+                    android:onClick="onCheckboxClicked"
+                    android:layout_gravity="center_vertical" />
+
+                <TextView
+                    android:paddingTop="6dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="12dp"
+                    android:text="I want to become a blood donor"
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    />
+
+
+
+
+            </LinearLayout>
+
+
+
+
+            <Button
+                android:id="@+id/profile_btn_submit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:background="@color/colorPrimary"
+                android:text="Setup Account"
+                android:textColor="@android:color/background_light" />
+
+
+
+
+
+        </android.widget.LinearLayout>
+
+    </ScrollView>
+
+
+
+
+</android.widget.LinearLayout>
+

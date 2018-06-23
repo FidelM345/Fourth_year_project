@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/group_all"
+        android:title=" All Group"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/group_a"
+        android:title="Group A"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/group_b"
+        android:title="Group B"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/group_l"
+        android:title="Group O"
+        android:visible="true" />
+    <item
+        android:id="@+id/group_ab"
+        android:title="Group AB"
+        app:showAsAction="never" />
+</menu>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/start_tts"
+        android:orderInCategory="100"
+        android:title="Start TTS"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/stop_tts"
+        android:orderInCategory="100"
+        android:title="Stop TTS"
+        app:showAsAction="never" />
+</menu>

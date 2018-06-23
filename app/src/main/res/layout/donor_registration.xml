@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.widget.LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.widget.LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:background="@color/colorPrimary"
+        android:layout_weight="1"
+        android:layout_height="0dp">
+
+
+        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/donor_profile_pic"
+            android:layout_width="144dp"
+            android:layout_height="0dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="2"
+            android:scaleType="centerCrop"
+            android:src="@drawable/profile_placeholder"
+            app:civ_border_color="#FFFFFFFF"
+            app:civ_border_width="5dp" />
+
+        <TextView
+            android:id="@+id/donor_names"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Names"
+            android:textColor="@android:color/background_light"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+
+    </android.widget.LinearLayout>
+
+    <android.widget.LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:paddingTop="16dp"
+        android:layout_weight="2"
+        android:layout_height="0dp">
+
+        <ProgressBar
+            android:id="@+id/profile_progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:visibility="invisible" />
+
+
+        <LinearLayout
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_gravity="center_vertical"
+                android:id="@+id/manw"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/weighticon" />
+
+
+            <EditText
+                android:id="@+id/donor_weight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Body Weight..."
+                android:inputType="number" />
+
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_marginTop="6dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_gravity="center_vertical"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ageicon" />
+
+
+            <EditText
+                android:id="@+id/donor_age"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Your Age..."
+                android:inputType="number" />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="2dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_gravity="center_vertical"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/bloodgroupicon" />
+
+            <Spinner
+                android:id="@+id/donor_group"
+                style="@style/spinner_style"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:entries="@array/array_blood_group"
+                android:prompt="@string/blood_group"
+                android:spinnerMode="dialog" />
+
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="2dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_gravity="center_vertical"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/rhesus" />
+
+            <Spinner
+                android:id="@+id/donor_rhesus"
+                style="@style/spinner_style"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:entries="@array/array_rhesus"
+                android:prompt="@string/rhesus"
+                android:spinnerMode="dialog" />
+
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="2dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_gravity="center_vertical"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/gendericon" />
+
+            <Spinner
+                android:id="@+id/donor_gender"
+                style="@style/spinner_style"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:entries="@array/array_gender"
+                android:prompt="@string/gender"
+
+                android:spinnerMode="dialog" />
+
+
+
+
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/donor_btn_donate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/colorPrimary"
+            android:text="Donate blood"
+            android:textColor="@android:color/background_light" />
+
+
+
+
+
+    </android.widget.LinearLayout>
+
+
+</android.widget.LinearLayout>
+

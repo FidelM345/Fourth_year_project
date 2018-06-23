@@ -1,0 +1,224 @@
+<resources>
+    <string name="app_name">AfyaHelp</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+
+    <string-array name="array_spinner">
+        <item>Nairobi</item>
+        <item>Rift valley</item>
+        <item>Central</item>
+        <item>Nyanza</item>
+        <item>Western</item>
+        <item>Eastern</item>
+    </string-array>
+
+
+    <string name="blood_group">Select Blood Group</string>
+    <string-array name="array_blood_group">
+        <item>A</item>
+        <item>B</item>
+        <item>AB</item>
+        <item>O</item>
+    </string-array>
+
+    <string name="rhesus">Select Rhesus Type</string>
+    <string-array name="array_rhesus">
+        <item>Rhesus +ve</item>
+        <item>Rhesus -ve</item>
+    </string-array>
+
+    <string name="gender">Select Gender</string>
+    <string-array name="array_gender">
+        <item>Male</item>
+        <item>Female</item>
+
+    </string-array>
+    <string name="title_activity_driver_maps">Map</string>
+    <string name="title_activity_maps">Map</string>
+
+
+    //Activity 2- problems category from main activity cardviews
+
+    <string-array name="array_circulatory_problem">
+        <item>Heart Attack</item>
+        <item>Angina Pectoris</item>
+        <item>Fainting</item>
+        <item>Shock</item>
+    </string-array>
+
+
+    //universal Titles
+    <string name="title_about"><u>About</u></string>
+    <string name="title_recognition"><u>Recognition</u> </string>
+    <string name="title_treatment"><u>Treatment</u></string>
+
+
+    //heart attack contents
+    <string name="heart_about">
+        A heart attack occurs when the flow of blood rich in oxygen, to a section of heart muscle is blocked.
+    </string>
+
+    <string name="heart_recognition">
+        &#8226;Persistent central chest pain that spread to\n the left arm and jaw.\n
+        &#8226;Sudden fainting and dizziness.\n
+        &#8226;Shortness of breath or difficulty in breathing.\n
+        &#8226;Profuse sweating.\n
+        &#8226;Rapid or irregular heartbeats.\n
+        &#8226;The patient may suddenly collapse.\n
+        &#8226;Nausea.
+    </string>
+
+    <string name="heart_treatment">
+        &#8226;Encourage the patient to rest and make him or her as comfortable as possible to ease the
+        strain on his or her heart.\n\n
+        &#8226;A half sitting position with the patient\'s head and shoulders well
+        supported and knees bent is always the best.\n\n
+        &#8226;Call for an ambulance
+        and state that you suspect it to be a heart attack.\n\n
+        &#8226;If the patient is not allergic to aspirin and is fully conscious, give him or her 300 mg asprin
+        tablet and advice him or her to chew it slowly.\n\n
+        &#8226;Begin CPR if the person is unconscious, please
+        refer to the steps in performing CPR in the app.\n
+    </string>
+
+    //agina attack contents
+    <string name="agina_about">
+       Angina is a chestpain that occurs when the blood supply to heart muscles is restricted. It
+        usually occurs due to hardening or narrowing of heart arteries.</string>
+
+    <string name="title_agina_types">
+      <u>Types of Angina</u>
+    </string>
+
+    <string name="agina_types">
+        <u>Stable-</u> Attacks are brought by
+        triggers such as exercise but improves with medication and rest.
+        It is not life threatening on its own.\n\n
+        <u>Unstable-</u> Attacks are unpredictable and continue despite resting. It should be regarded as
+        a medical emergency as it indicates the functioning
+        of the heart has suddenly deteroriated.
+
+    </string>
+
+
+    <string name="agina_recognition">
+        &#8226;Pain easing with rest.\n
+        &#8226;Central chest pain spreading to the jaw.\n
+        &#8226;Feeling of anxiety.\n
+        &#8226;Profuse sweating.\n
+        &#8226;Dizziness.\n
+        &#8226;Shortness of breath.\n
+        &#8226;Nausea and fatigue.
+    </string>
+
+    <string name="agina_treatment">
+        &#8226;Advice the patient to stop any activity he
+        or she is engaged in and sit down straight away.\n\n
+        &#8226;Reassure them and make
+        them comfortable as this will help ease the pain.\n\n
+        &#8226;Advice the patient
+        to take antiAngina medication e.g. aerosol spray or tablet.\n\n
+        &#8226;If the pain subsides
+        (In case of stable Angina) the patient
+        can resume to his or her activities.\n\n
+        &#8226;If the pain persists or resumes,
+        suspect heart attack and call for an ambulance.\n
+    </string>
+
+
+    //fainting contents
+
+    <string name="faint_about">
+       Fainting also known as syncope, is the sudden and temporary loss of
+        consciousness and posture caused by decrease inflow of blood rich in oxygen to the brain.
+    </string>
+
+    <string name="faint_recognition">
+        &#8226;Dizziness or light headedness.\n
+        &#8226;Rapid heartbeat or pulse.\n
+        &#8226;Burled vision.\n
+        &#8226;Profuse sweating.\n
+        &#8226;Headache.\n
+        &#8226;Nausea.\n
+        &#8226;Ringing in the ears.\n
+        &#8226;The patient may suddenly collapse.
+    </string>
+
+    <string name="faint_treatment">
+        &#8226;When the patient feels faint, advise him to lie down in his back,
+        rise his legs at least 10 inches (30cm) or support his ankles on your.\n\n
+        &#8226;A half sitting position with the patient\'s head and shoulders well
+        supported and knees bent is always the best
+        shoulders since this improves blood circulation to the brain.\n\n
+        &#8226;Make sure the casualty has plenty of
+        fresh air by opening windows and asking any bystanders to stay clear.\n\n
+        &#8226;As he recovers reassure him or her and help him or her sit up gradually.\n\n
+        &#8226;If the patient starts feeling faint again, advice him or her to lie down
+        again and raise and support his legs until he recovers fully.\n\n
+        &#8226;To reduce the chance of fainting again, don\'t get the person up too quickly.\n\n
+        &#8226;If the patient doesn\'t regain consciousness within
+        one minute, call your local emergency number.\n\n
+         &#8226;Begin CPR if the person does not show any signs of circulation such as breathing,
+        coughing or movement, please refer to the steps in performing CPR in the app.\n\n
+
+
+    </string>
+
+    //shock contents
+
+    <string name="shock_about">
+       Shock is a life threatening condition, that occurs
+        when you do not have enough blood circulating around your body,
+        and caused by fators such as uncontrolled bleeding, severe burns and spinal injury.</string>
+
+    <string name="title_shock_types">
+      <u>Types of Shock</u>
+    </string>
+
+    <string name="shock_types">
+     Some of the types include:\n\n
+    <u>Hypovolaemic:</u> It occurs when there is no enough blood volume caused by
+        excessive bleeding, dehydration or severe burns.\n\n
+        <u>Nuerogenic:</u> It occurs when there is damage on a person\'s
+        spine which in turn damages the nerves that control the width of the blood vessels.\n\n
+        <u>Cardiogenic:</u> It occurs when the heart cannot effectively pump blood
+        around the body caused by heart attack and other heart diseases.\n\n
+        <u>Septic-</u> Caused by an infection which causes blood vessels to expand hence
+        cause a drop in the blood pressure.
+    </string>
+
+
+    <string name="shock_recognition">
+        &#8226;Dizziness or light headedness.\n
+        &#8226;Rapid heartbeat or pulse.\n
+        &#8226;Difficulty in breathing and anxiety.\n
+        &#8226;Confusion and disorientation.\n
+        &#8226;Pale, cold, clammy skin.\n
+        &#8226;Nausea and vomiting.\n
+        &#8226;Low urine output or dark urine.\n
+        &#8226;Thirst or a dry mouth.\n
+        &#8226;Unconsciousness.
+    </string>
+
+    <string name="shock_treatment">
+        &#8226;If the patient is conscious,
+        lie him down and keep him warm and comfortable.\n\n
+        &#8226;Loosen his tight clothing.\n\n
+        &#8226;If possible, raise the patient\'s legs slightly above the level of their torso and head.
+        If you suspect spinal injury or if raising the legs cause further pain, then DO NOT raise them.\n\n
+        &#8226;Manage any signs of external bleeding e.g. by firm pressing a clean cloth on the wound.\n\n
+        &#8226;DO NOT give the person anything to eat or drink even if they are thirsty.\n\n
+        &#8226;Reassure the person and advice hem to rest or stay still as you await the ambulance to arrive.\n\n
+
+    </string>
+
+
+
+
+
+</resources>
