@@ -86,8 +86,6 @@ public class MainActivity extends AppCompatActivity
 
         gallery=(TextView) MenuItemCompat.getActionView(navigationView.getMenu().
                 findItem(R.id.nav_slideshow));
-        alert=(TextView) MenuItemCompat.getActionView(navigationView.getMenu().
-                findItem(R.id.nav_alerts));
 
 
         //referencing cardviews
@@ -116,9 +114,6 @@ public class MainActivity extends AppCompatActivity
         gallery.setTypeface(null, Typeface.BOLD);
         gallery.setTextColor(getResources().getColor(R.color.colorAccent));
 
-        alert.setGravity(Gravity.CENTER_VERTICAL);
-        alert.setTypeface(null, Typeface.BOLD);
-        alert.setTextColor(getResources().getColor(R.color.colorAccent));
 
 
         mfirestore.collection("Forum_Posts").addSnapshotListener(MainActivity.this,new EventListener<QuerySnapshot>() {
@@ -142,26 +137,7 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
-        mfirestore.collection("Alert_Posts").addSnapshotListener(MainActivity.this,new EventListener<QuerySnapshot>() {
-            @Override
-            public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
 
-                if (e != null) {
-                    // Log.w("Beast", "Listen failed.", e);
-
-                    return;
-                }
-
-                if (!queryDocumentSnapshots.isEmpty()){
-
-                   int currentAlert=queryDocumentSnapshots.size();
-                    alert.setText(Integer.toString(currentAlert));
-
-                }
-
-
-            }
-        });
 
 
 

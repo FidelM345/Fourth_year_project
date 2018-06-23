@@ -78,14 +78,12 @@ public class AlertFragment_Adapter extends RecyclerView.Adapter<AlertFragment_Ad
             @Override
             public void onClick(View v) {
 
-                Map<String, Object> likeMap = new HashMap<>();
+              /*  Map<String, Object> likeMap = new HashMap<>();
                 likeMap.put("TimeStamp", FieldValue.serverTimestamp());
                 likeMap.put("Alertpostid",blogpostid);
-
-
                 firestore.collection("Alert_Posts").document(blogpostid).collection("Alert_Views").document(currentUserId).
                         set(likeMap);
-
+*/
 
 
 
@@ -133,6 +131,8 @@ public class AlertFragment_Adapter extends RecyclerView.Adapter<AlertFragment_Ad
         });
 
          holder.setImageTitle(image_uri,title);
+
+         //notifying adapter incase an item has been deleted
 
 
 

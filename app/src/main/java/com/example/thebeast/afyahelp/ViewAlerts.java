@@ -41,13 +41,17 @@ public class ViewAlerts extends AppCompatActivity {
         AlertFragment_adapter=new AlertFragment_Adapter(bloglist);//initializing adapter
         blog_list_view.setAdapter(AlertFragment_adapter);
 
-        dataLoader();
+
     }
 
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        bloglist.clear();
+        dataLoader();
 
-
-
+    }
 
     private void dataLoader() {
 
