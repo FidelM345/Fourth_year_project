@@ -1,0 +1,9 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.thebeast.afyahelp">
+
+    <application>
+        <activity android:name="com.example.thebeast.afyahelp.Nose_bleeding"
+>
+        </activity>
+    </application>
+</manifest>
