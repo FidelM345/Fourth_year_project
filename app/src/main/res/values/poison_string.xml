@@ -1,2 +1,145 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+
+    <string-array name="array_poison_problem">
+        <item>Food Poisoning</item>
+        <item>Swallowed Poison</item>
+        <item>Alcohol Poisoning</item>
+    </string-array>
+
+
+    <string name="food_about_content">
+Food poisoning is an illness caused by eating food contaminated
+        by bacteria, fungi, virus or other toxins.
+    </string>
+
+    <string name="food_recognition_content">
+       &#8226;Nausea (Feeling sick).\n
+       &#8226;Vomiting.\n
+       &#8226;Abdominal pain and stomach cramps.\n
+       &#8226;Loss of appetite.\n
+       &#8226;Diarrhea which contain mucus or blood.\n
+       &#8226;Fever.\n
+       &#8226;Lack of energy and weakness.\n
+       &#8226;Chills and aching muscles.\n
+       &#8226;Headache.
+</string>
+
+    <string name="food_explain_content">
+     <u> When to immediately seek for medical help.</u>
+    </string>
+
+    <string name="food_content">
+      &#8226;When the patient has a racing or skipping heartbeat.\n\n
+      &#8226;When the patient\'s stool has a lot of blood in it (it\'s black or maroon).\n\n
+      &#8226;If the patient is sick from mushrooms, shellfish or canned items,
+        this is because toxins from these foods can have  potentially dangerous effects.
+</string>
+
+    <string name="food_treatment_content">
+    &#8226;When to immediately seek for medical help.Drinck clear fluids such as water,
+        starting with small sips and gradually drink more.\n\n
+&#8226;Avoid solid foods until vomiting stops after which eat light , bland food such as bananas, bread or rice.\n\n
+&#8226;DO NOT eat fried, greasy, spicy or sweet food since they can cause more vomiting and nausea.\n\n
+&#8226;If vomiting lasts more than 24 hours, drink an oral rehydration solution.\n\n
+&#8226;Take a table spoon of honey with few drops of ginger juice to reduce inflammation and pain.\n\n
+&#8226;Taking basil juice leaves early in the morning on an empty stomach will improve tour digestion.\n\n
+&#8226;Do not take over the counter anti-nausea or anti-diarrhea medication without consulting a doctor,
+        since it may interfere with the natural healing process and even make the diarrhea worse.
+</string>
+
+    <string name="food_doctor">
+    <u> When to contact a doctor:</u>
+</string>
+
+    <string name="food_doctor_content">
+     Contact a doctor if the following symptoms persists for more than three days:\n
+    &#8226;Fever.\n
+    &#8226;Bloody diarrhea.\n
+    &#8226;Severe belly pain.\n
+     &#8226;Prolonged or bloody vomiting.\n
+    &#8226;If the patient exhibits signs of dehydration e.g. dizziness, fatigue and dry mouth.\n\n
+   </string>
+
+
+    //swallowed poison
+
+    <string name="swallowed_about_content">
+    Poisoning occurs when any substance interferes with normal functioning
+        of the body after it has been swallowed, injected, inhaled or absorbed.
+    </string>
+
+    <string name="swallowed_recognition_content">
+        General symptoms of poisoning include:\n
+ &#8226;Dizziness and general body weakness.\n
+ &#8226;Breathing difficulties.\n
+ &#8226;Drowsiness or loss consciousness.\n
+ &#8226;Seizures.\n
+ &#8226;Nausea.\n
+ &#8226;Abnormal skin e.g. occurrence of skin rash.\n
+ &#8226;Stomach pain.\n
+ &#8226;Producing more saliva than normal.\n
+ &#8226;Blue lips and skin.\n
+ &#8226;Blurred vision.\n
+ &#8226;Mental confusion.\n
+ &#8226;In severe cases it could lead to a coma.
+    </string>
+
+
+    <string name="swallowed_treatment_content">
+&#8226;If conscious, ask the casualty what they have swallowed, the quantity and when.\n\n
+&#8226;Call your local emergency number immediately for help and tell them as much information as possible.\n\n
+&#8226;Remove any substance remaining in the casualty\'s mouth.\n\n
+&#8226;If the suspected poison container is in place, read the label and follow instructions for accidental poisoning.\n\n
+        &#8226;<b>DO NOT</b> attempt to make the casualty vomit the substance because it can cause further damage, but if they vomit naturally,
+        put some of their vomit in to a container and give I to the ambulance team.\n\n
+&#8226;Collect the pill bottles or containers with labels and any other info concerning
+        the poison and send it along with the emergency team, since this will help
+        the medics have appropriate treatment.\n\n
+&#8226;Begin CPR if the person becomes unconscious (please refer to the steps in performing CPR in the app).\n\n
+    </string>
+
+
+
+    //Alcohol poison
+
+    <string name="alcohol_about_content">
+   Alcohol poisoning is a serious consequence of drinking large amounts of alcohol within a short time.
+        It may affect your breathing, heart rate, gag reflex, body temperature and may even lead to a coma and death.\n
+It can also occur when a person accidentally drink mhousehold products that contain alcohol.
+    </string>
+
+    <string name="alcohol_recognition_content">
+     &#8226;Confusion.\n
+&#8226;Slow and irregular breathing.\n
+&#8226;Vomiting.\n
+&#8226;Seizures.\n
+&#8226;Pale skin.\n
+&#8226;Low body temperatures.\n
+&#8226;Unconscious or can be conscious but unresponsive (Stupor).
+    </string>
+
+
+    <string name="alcohol_treatment_content">
+&#8226;Call your local emergency number immediately and <b>NEVER</b> assume that the person will sleep off alcohol poisoning.\n\n
+&#8226;If aware provide info to the emergency personnel of the kind, amount and the time the person drank the alcohol.\n\n
+        &#8226;While waiting for help, <b>DO NOT</b> try to make the patient vomit because this could make them choke.\n\n
+&#8226;If the victim is vomiting, keep them sitting up and if they must lie down, ensure to turn
+        their head to the side since this helps to prevent chocking.\n\n
+&#8226;If the person is conscious, it is advisable to give them
+        lots of water since this will help flush alcohol from their system.
+        DO NOT give them black coffee since it does not help to flush alcohol from their system.\n\n
+&#8226;Place a blanket or coat over the patient to help them keep warm.\n\n
+&#8226;Try to keep the person awake to prevent loss of consciousness.\n\n
+&#8226;Begin CPR if the patient become unconscious (please refer to the steps in performing CPR in the app).\n\n
+    </string>
+
+
+
+
+
+
+
+
+
+</resources>

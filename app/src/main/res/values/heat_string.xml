@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="array_heat_problem">
+        <item>Minor Burns and Scalds</item>
+        <item>Electric Burns</item>
+        <item>Chemical Burns</item>
+        <item>Surn Burns</item>
+        <item>Hypothermia</item>
+    </string-array>
+
+
+    //burns and scalds
+    <string name="burn_priority_content">
+   &#8226;Stop the burning process as quickly as possible.\n
+&#8226;Relieve pain and swelling.\n
+&#8226;Prevent infection of the injured area.
+ </string>
+    <string name="burn_treatment_content">
+
+ &#8226;Stop the burning process as soon as possible but be careful not to put yourself at risk of being burnt.\n\n
+ &#8226;Help the victim remove any clothing or jewelry near the burnt area of the skin
+        quickly and gently before the area swells, however DO NOT try to
+        remove anything that is stuck to the burnt skin.\n\n
+ &#8226;Cool the burn with cool/lukewarm water for 10-20 minutes or until the pain eases.
+        This can be done by holding the burned area under cool running water or applying a
+        clan towel damped with tap water. NEVER use ice r greasy substance such as butter.\n\n
+ &#8226;Do not break the small blisters and if they break, clean them with mild soap and clean water.
+        Apply antibiotic ointment and cover it with nonstick gauze bandage.\n\n
+ &#8226;Apply moisturizer such as gel or aloe vera lotion which may provide relief.\n\n
+ &#8226;You can cover the burn with a cling film (a thin plastic film), put the film in a layer
+        over the burn rather than wrapping it around the limb.
+        A clean plastic bag can be used for burns on your hand.\n\n
+ &#8226;If necessary, give the victim over-the-counter pain relievers such as ibuprofen to relieve from pain.\n\n
+ &#8226;The victim should get tetanus booster shot if the date of last shot given is more than 10 years.\n\n
+
+        <b>For major burns:\n\n</b>
+
+&#8226;Do not immerse large severe burns in cold water as this cold may cause a serious loss in body heat or
+        a medical shock (decreased blood flow).\n
+&#8226;You can keep the victim warm by using a blanket or layer of clothing but avoid putting it around the burned area.\n
+&#8226;Cover the burned area using a cool moist bandage or a clean cloth.\n\n
+
+        <b>When to seek for medical help:\n\n</b>
+
+
+&#8226;If the burns cover large section of the victim\'s body and if you notice signs of infection such as redness,
+        swelling, increased pain and oozing from the burned area.\n
+&#8226;If the victim develops large blisters.\n
+    </string>
+
+
+
+    <string name="burn_degree">
+  <u>Degree of Burns</u>
+ </string>
+
+    <string name="burn_degree_content">
+
+ <b>  First Degree\n</b>
+&#8226;It is the least serious degree of burn which are treated as minor burns.\n
+&#8226;It only involves the outer layer of the ski and may cause redness, swelling and pain.\n
+&#8226;Seek for urgent medical help it it involves much of hands, face, buttocks, feet, groin or a major joint.\n\n
+
+<b>Second Degree\n</b>
+&#8226;It is more serious than the first degree burn and may cause pain, blisters, swelling red or white skin.\n
+&#8226;If the burn is no longer than 7.6 centimeters treat it as minor as minor burn but
+        if it covers sections of the body such as hands, face, buttocks,
+        feet, groin or major joint, then seek urgent medical help.\n\n
+
+
+<b>Third Degree\n</b>
+&#8226;It is the most serious of the three degrees of burns because it involves all layers of the skin and the fat beneath.\n
+&#8226;Bones and muscles may also be affected by the burn.\n
+&#8226;The area burned may be charred black or white and the victim may have breathing complications
+        or carbon monoxide poisoning if smoke inhalation occurred.\n
+&#8226;Seek for urgent medical help.\n\n\n
+    </string>
+
+
+
+    //Electrical burns
+    <string name="electrical_priority_content">
+  &#8226; Cut off supply of electric power if possible.\n
+  &#8226;Treat the burns and shock.\n
+  &#8226;Urgently transfer the victim to a hospital.
+ </string>
+
+    <string name="electrical_treatment_content">
+
+ &#8226; <b>DO NOT</b> touch the victim unless the source of electricity is turned off and if not possible,
+        move the victim away from the electric source by:\n\n
+&#8226;First ensuring you stand on a dry insulator surface such as rubber doormat or a pile of papers.
+        Ensure you are not standing in or near water.\n\n
+&#8226;Using a dry non-conducting object made of plastic or woog such as broom handle,
+        push the victim away from the electric source.\n\n
+&#8226;Begin <b>CPR</b> if the person does not show signs of circulation such as breathing, coughing or movement.\n\n
+&#8226;Try to prevent the victim from becoming chilled.\n\n
+&#8226;Cover any burned areas with sterile gauze bandage, if available or clean cloth.
+        Never use blankets to cover the burned area because loose fibres can stick to the burns.\n\n
+&#8226;Seek for medical help if the victim has: Breathing complications, Cardiac arrest,
+        Loss of consciousness, Muscle pain and Contractions.\n\n\n
+
+ </string>
+
+
+
+    //Chemical burns
+    <string name="chemical_priority_content">
+&#8226; Remove the harmful chemical substance.\n
+&#8226;Transfer the victim to a hospital.
+
+ </string>
+
+    <string name="chemical_treatment_content">
+ &#8226;Wear gloves in order to protect yourself and remove the chemical causing the burn.\n\n
+&#8226;Remove the contaminated clothing or jewellery to prevent further damage by the chemical substance.\n\n
+&#8226;Rinse the burn immediately by running a steady stream of cool water over the burn for about ten minutes or more.\n\n
+&#8226;Loosely apply a bandage.\n\n
+&#8226;Seek for medical help.\n\n\n
+
+ </string>
+
+
+    //Sun burns
+    <string name="sun_recognition_content">
+ &#8226;Pain in the area of the burn.\n
+ &#8226;Reddened/ Pinked skin.\n
+ &#8226;Blistering of the affected skin.\n
+ &#8226;Skin that feel warm or hot to the touch.\n
+    &#8226; <b>If SEVERE</b> headaches, fever and fatigue is felt.\n
+
+ </string>
+
+    <string name="sun_treatment_content">
+  &#8226;Help the victim to move into the shade or indoors.\n
+ &#8226;Apply a clean towel dampened with cool tap water on the victim\'s skin or advice the person to take a cool shower.\n\n
+ &#8226;Apply moisturizer such as aloe vera lotion or gel which will provide relief.\n\n
+  &#8226;<b>DO NOT</b> break the blisters and if the blisters break, wash the area with mild soap and water
+        then apply an antibiotic ointment ans cover with nonstick gauze bandage.\n\n
+ &#8226;If the burns are severe causing effects such as extreme pain, headache or chills, seek for medical help.\n\n\n
+
+ </string>
+
+
+
+    //Hypothermia
+    <string name="hypothermia_recognition_content">
+ &#8226;Shivering.\n
+&#8226;Cold and pale dry skin.\n
+&#8226;Apathy.\n
+&#8226;Impaired consciousness.\n
+&#8226;Slow shallow breathing.\n
+&#8226;Slow and weak pulse.\n
+&#8226;Slurred speech.\n
+&#8226;Drowsiness and very low energy.
+
+ </string>
+
+    <string name="hypothermia_treatment_content">
+ &#8226;Move the person indoors out of the cold and if not possible, shield him/her
+        against wind especially around head and neck.\n\n
+&#8226;Insulate the person from cold ground.\n\n
+&#8226;Remove wet clothing and replace with warm and dry blankets or coats.\n\n
+&#8226;Give the person warm sweet non-alcoholic drink.\n\n
+&#8226;Begin CPR if the person does not show signs of life such as breathing.\n\n\n
+
+ </string>
+
+
+</resources>

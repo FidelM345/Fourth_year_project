@@ -8,13 +8,13 @@ import java.util.Date;
 
 public class Comment_model {
     String message,user_id;
-    Date time_stamp;
+    Long time_stamp;
 
     public Comment_model() {
     }
 
 
-    public Comment_model(String message, String user_id, Date time_stamp) {
+    public Comment_model(String message, String user_id, Long time_stamp) {
         this.message = message;
         this.user_id = user_id;
         this.time_stamp = time_stamp;
@@ -36,11 +36,11 @@ public class Comment_model {
         this.user_id = user_id;
     }
 
-    public Date getTime_stamp() {
+    public Long getTime_stamp() {
         return time_stamp;
     }
 
-    public void setTime_stamp(Date time_stamp) {
+    public void setTime_stamp(Long time_stamp) {
         this.time_stamp = time_stamp;
     }
 }

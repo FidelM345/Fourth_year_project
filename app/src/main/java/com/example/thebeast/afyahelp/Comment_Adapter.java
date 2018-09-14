@@ -13,8 +13,11 @@ import com.bumptech.glide.request.RequestOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.text.DateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -55,7 +58,7 @@ public class Comment_Adapter extends  RecyclerView.Adapter<Comment_Adapter.ViewH
 
         //gets data stored in the bloglist List data structure, the getDescription model class is found in the model class
         String  comment_message=bloglist.get(position).getMessage();
-        Date timestamp=bloglist.get(position).getTime_stamp();
+        Long timestamp=bloglist.get(position).getTime_stamp();
 
         String  imageuri=userlist.get(position).getImageuri();
         String  fname=userlist.get(position).getFname();
@@ -69,7 +72,7 @@ public class Comment_Adapter extends  RecyclerView.Adapter<Comment_Adapter.ViewH
         holder.setUser_details(imageuri,fname,lname);
 
         holder.setComment_message(comment_message);
-        holder.timeStamp(timestamp);
+        holder.getDate(timestamp);
 
 
     }
@@ -120,21 +123,19 @@ public class Comment_Adapter extends  RecyclerView.Adapter<Comment_Adapter.ViewH
 
         }
 
-        public void timeStamp(Date timestamp){
-           // String dateString= DateFormat.format("MM/dd/yyy HH:mm",new Date(String.valueOf(timestamp))).toString();
+        public void getDate(Long timestamp) {
+            Calendar calendar=Calendar.getInstance(Locale.getDefault());
+            calendar.setTimeInMillis(timestamp*1000);
 
-           /* String current= DateFormat.getDateInstance().format( timestamp.getTime());
+            String date= DateFormat.getDateTimeInstance().format(calendar.getTime()).toString();
+            //String date= DateFormat.format("dd-MM-yyyy HH:mm",calendar).toString();
+
             comment_time=mView.findViewById(R.id.comment_time);
-            comment_time.setText(current);*/
 
-
-
-
-
-
-
+            comment_time.setText(""+date);
 
         }
+
 
 
 

@@ -1,15 +1,16 @@
 package com.example.thebeast.afyahelp;
 
-import android.Manifest;
+
+import android.app.DatePickerDialog;
+
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.location.Address;
-import android.location.Geocoder;
-import android.location.Location;
+
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
@@ -19,21 +20,16 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -44,9 +40,14 @@ import com.google.firebase.storage.UploadTask;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
+import org.joda.time.LocalDate;
+import org.joda.time.Years;
+
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -57,17 +58,20 @@ import id.zelory.compressor.Compressor;
 
 
 
- class Profile extends AppCompatActivity implements View.OnClickListener,GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
+ class Profile extends AppCompatActivity implements View.OnClickListener,DatePickerDialog.OnDateSetListener{
 
     StorageReference mstorageReference;
     FirebaseAuth mAuth;
     FirebaseFirestore mfirestore;
-    EditText Fname, Lname,phone_no,weight,age,gps_location;
+    EditText Fname, Lname,phone_no,weight,age;
+     Long timestamp;
 
-     Spinner donor_group1,donor_gender1,donor_rhesus1;
+     Spinner donor_group1,donor_gender1,donor_rhesus1,Province_Name;
 
      Button Okbutton;
-    CircleImageView circleImageView,btn_location;
+     CircleImageView birth_date;
+     ImageView circleImageView;
+
     Uri mainImageUri=null;
     boolean isChaanged = false;
     ProgressBar progressBar;
@@ -76,14 +80,9 @@ import id.zelory.compressor.Compressor;
     CheckBox checkBox;
     boolean check_box_value=false;
 
-     Location lastloaction;
-     GoogleApiClient googleApiClient;
-     LatLng latLng;
-     String county=null;
 
 
-
-    @Override
+     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
@@ -94,7 +93,7 @@ import id.zelory.compressor.Compressor;
         mfirestore = FirebaseFirestore.getInstance();
 
         Fname = findViewById(R.id.profile_fname);
-        gps_location = findViewById(R.id.profile_gps);
+        Province_Name= findViewById(R.id.provine_name);
         Lname = findViewById(R.id.profile_lname);
         weight = findViewById(R.id.profile_weight);
         age = findViewById(R.id.profile_age);
@@ -102,9 +101,9 @@ import id.zelory.compressor.Compressor;
         donor_group1 =findViewById(R.id.profile_blood_group);
         donor_gender1=findViewById(R.id.profile_gender);
         donor_rhesus1=findViewById(R.id.profile_rhesus);
-        btn_location=findViewById(R.id.btn_location);
 
 
+        birth_date=findViewById(R.id.id_birth);
 
 
         checkBox=findViewById(R.id.profile_check);
@@ -115,28 +114,20 @@ import id.zelory.compressor.Compressor;
         progressBar.setVisibility(View.INVISIBLE);
 
 
+         age.setFocusable(false);//makes the edit text in active
+
         circleImageView.setOnClickListener(this);
+
+        birth_date.setOnClickListener(this);
+
+
         Okbutton.setOnClickListener(this);
-        btn_location.setOnClickListener(this);
-
-        if(checkBox.isChecked()){
 
 
 
-        }
 
 
-
-        //google api client that allows us to talk to google services
-        googleApiClient = new GoogleApiClient.Builder(this)
-                .addApi(LocationServices.API)
-                .addConnectionCallbacks(this)
-                .addOnConnectionFailedListener(this)
-                .build();
-
-
-
-    }
+     }
 
 
      public void onCheckboxClicked(View view) {
@@ -168,8 +159,9 @@ import id.zelory.compressor.Compressor;
 
                 break;
 
-            case R.id.btn_location:
-
+            case R.id.id_birth:
+                //allow user to select profile pic from phone memory
+                dateSelector();
 
                 break;
 
@@ -179,10 +171,9 @@ import id.zelory.compressor.Compressor;
                     final String first_name=Fname.getText().toString().trim();
                     final String user_phoneno=phone_no.getText().toString().trim();
                     final String last_name=Lname.getText().toString().trim();
-                    final String user_location=gps_location.getText().toString().trim();
+                    final String user_location=Province_Name.getSelectedItem().toString().trim();;
                     final String user_age=age.getText().toString().trim();
                     final String user_weight=weight.getText().toString().trim();
-
                     final String user_blood_group=donor_group1.getSelectedItem().toString().trim();
                     final String user_gender=donor_gender1.getSelectedItem().toString().trim();
                     final String user_blood_rhesus=donor_rhesus1.getSelectedItem().toString().trim();
@@ -190,12 +181,14 @@ import id.zelory.compressor.Compressor;
 
                     user_id=mAuth.getCurrentUser().getUid();
 
-                    progressBar.setVisibility(View.VISIBLE);
+
 
                     if (!TextUtils.isEmpty(first_name)&&!TextUtils.isEmpty(last_name)&&!TextUtils.isEmpty(user_location)&&
                     !TextUtils.isEmpty(user_age)&& !TextUtils.isEmpty(user_weight) && !TextUtils.isEmpty(user_blood_group)
-                            && !TextUtils.isEmpty(user_gender)&& !TextUtils.isEmpty(user_blood_rhesus)&& mainImageUri !=null){
+                            && !TextUtils.isEmpty(user_gender)&& !TextUtils.isEmpty(user_blood_rhesus)
+                            &&!TextUtils.isEmpty(user_phoneno)&& timestamp!=null&& mainImageUri !=null){
 
+                        progressBar.setVisibility(View.VISIBLE);
 
                         StorageReference image_path=mstorageReference.child("Profile_image").child(user_id+".jpg");
 
@@ -217,17 +210,29 @@ import id.zelory.compressor.Compressor;
                         });
 
 
+                    }else {
+                        Toast.makeText(Profile.this, "Ensure all fields have been filled", Toast.LENGTH_LONG).show();
                     }
 
                 }else {
                     Toast.makeText(Profile.this, "Please select image first by clicking image icon above to setup your account", Toast.LENGTH_LONG).show();
+
+
                 }
              break;
 
         }
     }
 
-    private void storeProfileThumburi(final String fname, final String lname, final String phoneno, final String location1, final String age,
+     private void dateSelector() {
+
+         DatePick dialogFragment=new DatePick();
+         dialogFragment.show(getSupportFragmentManager(),"Date Picker");
+
+
+     }
+
+     private void storeProfileThumburi(final String fname, final String lname, final String phoneno, final String location1, final String age,
                                       final String weight, final String blood_group, final String gender, final String rhesus, final String main_profile_uri) {
         File actualImageFile=new File(mainImageUri.getPath());
 
@@ -275,8 +280,10 @@ import id.zelory.compressor.Compressor;
 
     }
 
-    private void storeFirestore(Task<UploadTask.TaskSnapshot> task, String first_name, String last_name, String phoneno, String user_location, String age,
-                                String weight, String blood_group, String gender, String rhesus, String main_profile_uri) {
+    private void storeFirestore(Task<UploadTask.TaskSnapshot> task, String first_name,
+                                String last_name, String phoneno, String user_location, String age,
+                                String weight, String blood_group,
+                                String gender, String rhesus, String main_profile_uri) {
 
         Uri download_uri;
         download_uri=task.getResult().getDownloadUrl();
@@ -287,14 +294,16 @@ import id.zelory.compressor.Compressor;
         user_details.put("phone_no",phoneno);
         user_details.put("email",mAuth.getCurrentUser().getEmail());
         user_details.put("location",user_location);
-        user_details.put("age",age);
-        user_details.put("weight",weight);
+        user_details.put("age",timestamp);
+        user_details.put("weight", Integer.valueOf(weight));
         user_details.put("blood_group",blood_group);
         user_details.put("gender",gender);
         user_details.put("donor",check_box_value);
         user_details.put("rhesus",rhesus);
         user_details.put("imageuri",main_profile_uri);
         user_details.put("thumburi",download_uri.toString());
+
+
 
         mfirestore.collection("user_table").document(user_id).set(user_details).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
@@ -338,8 +347,8 @@ import id.zelory.compressor.Compressor;
 
                 CropImage.activity()
                         .setGuidelines(CropImageView.Guidelines.ON)
-                        .setAspectRatio(1, 1)
-                        .setScaleType(CropImageView.ScaleType.CENTER_INSIDE)
+                        .setAspectRatio(4, 3)
+                        .setScaleType(CropImageView.ScaleType.CENTER_CROP)
                         .start(this);
 
             }
@@ -347,8 +356,8 @@ import id.zelory.compressor.Compressor;
 
             CropImage.activity()
                     .setGuidelines(CropImageView.Guidelines.ON)
-                    .setAspectRatio(1, 1)
-                    .setScaleType(CropImageView.ScaleType.CENTER_INSIDE)
+                    .setAspectRatio(4, 3)
+                    .setScaleType(CropImageView.ScaleType.CENTER_CROP)
                     .start(this);
         }
 
@@ -372,53 +381,55 @@ import id.zelory.compressor.Compressor;
         }
     }
 
-    @Override
-    public void onConnected(@Nullable Bundle bundle) {
-
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(Profile.this, new String[]{Manifest.permission.ACCESS_COARSE_LOCATION}, 1);
-
-        } else {
-
-            lastloaction = LocationServices.FusedLocationApi.getLastLocation(googleApiClient);
-
-            if (lastloaction != null) {
 
 
-                Geocoder geocoder=new Geocoder(getApplicationContext());
-                try {
-                    List<Address> addressList= geocoder.getFromLocation(lastloaction.getLatitude(),lastloaction.getLongitude(),1);
-                    String county1=addressList.get(0).getLocality();
-                    String county2=addressList.get(0).getAdminArea();
 
 
-                    gps_location.setText(county1+", "+county2);
-
-                    } catch (IOException e) {
-                    e.printStackTrace();
-                }
 
 
-            }
 
-
-        }
-    }
-    @Override
-    public void onConnectionSuspended(int i) {
-
-        googleApiClient.connect();
-    }
-
-    @Override
-    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
-
-    }
 
      @Override
-     protected void onStart() {
-         super.onStart();
-         googleApiClient.connect();
+     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+         switch (requestCode){
+
+
+             case 1:
+
+                 if (grantResults.length>0){
+
+                     if (grantResults[0]==PackageManager.PERMISSION_GRANTED){
+
+
+
+                     }else if(grantResults[0]==PackageManager.PERMISSION_DENIED){
+
+                         Toast.makeText(getApplicationContext(),"Permission Denied",Toast.LENGTH_LONG).show();
+
+                     }
+                 }
+         }
+
      }
+
+
+     @Override
+     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+         Calendar calendar=Calendar.getInstance();
+         calendar.set(Calendar.YEAR,year);
+         calendar.set(Calendar.MONTH,month);
+         calendar.set(Calendar.DAY_OF_MONTH,dayOfMonth);
+
+         String currentDate= DateFormat.getDateInstance().format(calendar.getTime());
+
+         timestamp=calendar.getTimeInMillis();
+
+         age.setText(""+currentDate);
+     }
+
+
+
  }
 

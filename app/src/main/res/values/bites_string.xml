@@ -1,2 +1,210 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+
+    <string-array name="array_bites_problem">
+        <item>Snake Bites</item>
+        <item>Spider Bites</item>
+        <item>Bee and Wasp stings</item>
+        <item>Jelly sting</item>
+        <item>Animal Bites</item>
+
+    </string-array>
+
+
+    //snake bite
+ <string name="bites_about_content">
+There are 2 types of snake bites:\n\n
+<b>DRY Bite</b> - where the snake injects no venom to its victim. The common symptoms include:\n
+&#8226;Mild pain at the site of the bite caused by physical punctures by snake\'s fangs.\n
+&#8226;Feeling of unease.\n
+&#8226;Usually there are no other symptoms such as swelling.\n
+&#8226;However the casualty should still visit the hospital for check up.\n\n
+
+     <b>VENOMOUS Bite</b> - where the snake injects venom to it\'s victim. The common symptom include:\n
+&#8226;Swelling and redness at the site of the bite, spreading up the bitten limp.\n
+&#8226;Nausea.\n
+&#8226;Vomiting.\n
+&#8226;Blurred vision.\n
+&#8226;Itchy rash on the skin.\n
+&#8226;Numbness in face and limbs.\n
+&#8226;Sweating and salivation.\n
+&#8226;Breathing difficulties with wheezing.\n
+&#8226;Irregular heartbeat.\n
+&#8226;Confusion and dizziness.    </string>
+
+    <string name="bites_priority">
+        <u>Priority</u>
+
+    </string>
+
+    <string name="bites_priority_content">
+   &#8226;Prevent the spread of venom in the body.\n
+   &#8226;Transfer the casualty to hospital as soon as possible.
+    </string>
+    <string name="bites_treatment_content">
+   &#8226; Advice the casualty to remain calm and cautiously move him or her away from the snake\'s striking distance.\n\n
+&#8226; Help the casualty to remove any jewelry and any tight clothing from the area that was bitten before the wound starts swelling.\n\n
+&#8226; If possible help the casualty to lie down with the wound below the heart.\n\n
+&#8226; Keep the casualty a rest and as still as possible to prevent the venom from spreading.\n\n
+&#8226; Clean the wound, but do not flush with water, after which cover it with a clean, dry dressing.\n\n
+&#8226;  <b>DO NOT</b> apply ice or cut the wound in an attempt to remove the venom.\n\n
+&#8226; <b>DO NOT</b> attempt to suck out the venom.\n\n
+&#8226; <b>DO NOT</b> give the patient any alcoholic or caffeine drink because this can speed up the rate at which the body absorbs the venom.\n\n
+&#8226; <b>DO NOT</b> attempt to capture the snake, instead take note of its features such as colour and shape, so that you can describe it to the medics.\n\n
+&#8226; Help the casualty to remove their shoes if leg or feet was bitten.\n\n
+&#8226; Seek for medical help as soon as possible.\n\n\n
+
+
+    </string>
+
+
+    //spider bites
+
+    <string name="spider_recognition_content">
+  General symptoms of bites from black widow and brown recluse spider:\n
+&#8226;Fever.\n
+&#8226;Vomiting.\n
+&#8226;Nausea.\n
+&#8226;Headache.\n
+&#8226;Abdominal pain.\n
+&#8226;Pain and redness on the site of the bite.\n
+&#8226;Joint pain or stiffness.\n
+&#8226;Muscle cramping.
+
+    </string>
+
+
+    <string name="spider_priority_content">
+  &#8226;Get medical assistance.\n
+&#8226;Treat symptoms relating to the spider bites\n
+&#8226;If possible, kill the spider and giv it to the medical team.
+
+    </string>
+    <string name="spider_treatment_content">
+  &#8226; Wash the wound with soap and water.\n\n
+&#8226;Apply ice pack over the site of the bite.\n\n
+&#8226;OCT- (over-the-counter) pain relievers may be used to relieve symptoms
+        but aspirin should not be given to children instead use ibuprofen.\n\n
+&#8226;Seek emergency treatment if the casualty is a young child and if you
+        think the bite might be from poisonous spider e.g. black widow,
+        if any sign of allergic reaction occurs, if site of bite becomes infected,
+        if the casualty develops skin rashes or severe illness.\n\n
+&#8226;If possible carry the spider along with you to the medics to be accurately identified.\n\n
+&#8226;The casualty may be given a tetanus booster shot depending on the date of last immunization.\n\n
+
+ </string>
+
+
+    //bee sting
+
+    <string name="bee_recognition_content">
+  When you experience the following symptoms of severe allergic reaction to the sting,
+        immediately seek for medical help. The symptoms include:\n
+&#8226;Itching in areas of the body not affected by the sting.\n
+&#8226;Breathing difficulties.\n
+&#8226;Dizziness.\n
+&#8226;Light headedness.\n
+&#8226;Vomiting\n
+&#8226;Nausea.\n
+&#8226;Stomach cramps.\n
+&#8226;Diarrhea.\n
+&#8226;Skin rash.\n
+&#8226;Severe swelling of face, lips or the throat.
+
+    </string>
+
+
+    <string name="bee_priority_content">
+  &#8226;Remove the sting from the victim as quickly as possible.
+&#8226;Limit swelling and pain.\n
+&#8226;Immediately seek medical
+        assistance if the victim is allergic to the sting or has multiple stings.
+
+    </string>
+
+
+    <string name="bee_treatment_content">
+        The below steps can be applied to both bee and wasp stings:\n\n
+ &#8226;Move the victim to a safe area to avoid more stings.\n\n
+ &#8226;Immediately remove the stingers by brushing or scraping sideways e.g. by use of a credit card.
+        <b>Never</b> pull out the sting as more venom will be injected causing more damage.\n\n
+ &#8226;Apply to the site of the sting cloth filled with ice or dampened with cold water
+        for 20 minutes once every hour as needed. This will help to provide mild relief.\n\n
+ &#8226;Wash the sting site with soapy water as this will help neutralize the sting.\n\n
+ &#8226;Taking antihistamine such as Banadryl will help with itching and swelling.\n\n
+ &#8226;Take  <b>OTC</b> (over-the-counter) pain relievers such as ibuprofen to relieve some pain as needed.\n\n
+ &#8226;The victim may be given a tetanus booster shot depending on the date of last immunization.
+        If it has been more than 10 years, get the booster.\n\n
+ &#8226;If you have multiple stings, if allergic or have severe reaction in the past when stung, please seek for medical help.\n\n
+ &#8226;If you have a single sting and are not allergic to it, home treatment may be enough.\n\n
+    </string>
+
+
+
+    //jelly sting
+
+    <string name="jelly_recognition_content">
+When the victim experiences the following symptoms of severe allergic reactions to the sting,
+        immediately seek for medical help. The symptoms include:\n
+&#8226;Headache.\n
+&#8226;Breathing difficulties.\n
+&#8226;Dizziness.\n
+&#8226;Light headedness and general body weakness.\n
+&#8226;Vomiting.\n
+&#8226;Nausea.\n
+&#8226;Fever.\n
+&#8226;Diarrhea.\n
+&#8226;Skin rash.\n
+&#8226;Loss of consciousness.\n
+&#8226;Abnormal heart rate or chest pain.\n\n
+
+<b>See the doctor when:\n\n</b>
+&#8226;The victim has severe allergic reactions.\n
+&#8226;The sting is from a box jellyfish.\n
+&#8226;The stings cover a large area of the skin.
+    </string>
+
+
+    <string name="jelly_priority_content">
+ &#8226;Help the victim to move away from the site of the sting e.g. sea water.\n
+&#8226;Relieve pain.\n
+&#8226;Seek for medication if necessary.
+
+    </string>
+
+
+    <string name="jelly_treatment_content">
+       General first aid procedures for jellyfish sting include:\n\n
+&#8226;If still in the sea, cautiously help the victim to move away from the water.\n\n
+&#8226;Remove any pieces of jellyfish on the victim\'s skin by rinsing he skin with sea water gently
+        scrap off the stingers using edges of a credit card. <b>DO NOT</b> wash the sting area
+        with fresh water as it may activate more stingers.\n\n
+&#8226;Rinse site of the sting with vinegar for about 30 seconds or apply baking soda paste.\n\n
+&#8226;Apply ice packs on the site of the sting or hot (ranging between 40-45 degree centigrade\'s)
+        for about 30 minutes ensuring it is not so hot that it can damage the skin, this will help ease pain.\n\n
+&#8226;Take <b>OTC</b> (over-the-counter) pain reliever as this will also help to kill the pain.\n\n
+&#8226;Apply lotions such as calamine or lidocaine or oral antihistamine to help relieve itching and discomfort.\n\n\n
+    </string>
+
+
+    //animal bite
+    <string name="dog_priority_content">
+ Seek urgent medical attention when:\n
+&#8226;The wound is a deep puncture and are not sure how serious it is.\n
+&#8226;The skin is badly injured and bleeding severely.\n
+&#8226;You are not aware of the immunization status (against rabies) of the animal that bit you.\n
+&#8226;When there is increasing swelling and redness at the site of the injury.\n
+&#8226;When you haven\'t had a tetanus shot foe a long time e.g. the past five years.
+    </string>
+
+
+    <string name="dog_treatment_content">
+  &#8226;If the bite did not break the skin and there is no risk of rabies,
+        wash the wound with soap and water then apply antibiotic cream to prevent infection.
+        Cover the site of the bite with a clean bandage.\n\n
+&#8226;If the skin is badly torn and bleeding, apply pressure on the injured area using a dry clean
+        cloth to prevent further bleeding,
+        after which you should seek for medical assistance.\n\n\n
+    </string>
+
+</resources>

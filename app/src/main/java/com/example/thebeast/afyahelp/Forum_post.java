@@ -12,6 +12,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -81,6 +82,22 @@ public class Forum_post extends AppCompatActivity implements View.OnClickListene
         progressBar = findViewById(R.id.forum_progress);
 
         progressBar.setVisibility(View.INVISIBLE);
+
+
+        post_description.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (v.getId() == R.id.forum_description) {
+                    v.getParent().requestDisallowInterceptTouchEvent(true);
+                    switch (event.getAction() & MotionEvent.ACTION_MASK) {
+                        case MotionEvent.ACTION_UP:
+                            v.getParent().requestDisallowInterceptTouchEvent(false);
+                            break;
+                    }
+                }
+                return false;
+            }
+        });
 
         post_image.setOnClickListener(this);
         post_button.setOnClickListener(this);
@@ -202,11 +219,13 @@ public class Forum_post extends AppCompatActivity implements View.OnClickListene
 
         }
 
+    private long timeStamp() {
+        Long timestamp=System.currentTimeMillis()/1000;
+        return timestamp;
+    }
+
     private void forumDatabasepublish(@NonNull Task<UploadTask.TaskSnapshot> task, String title, String description, String current_user_id, String download_uri) {
 
-
-        Calendar calendar=Calendar.getInstance();
-        String current= DateFormat.getDateTimeInstance().format(calendar.getTime());
 
         String thumbnail_uri=task.getResult().getDownloadUrl().toString();
         //if thumbnail has been uploaded successfully do the following
@@ -216,7 +235,7 @@ public class Forum_post extends AppCompatActivity implements View.OnClickListene
         contents.put("user_id",current_user_id);
         contents.put("imageUri",download_uri);
         contents.put("thumbUri",thumbnail_uri);
-        contents.put("timestamp",current);
+        contents.put("timestamp",timeStamp());
 
         firestore.collection("Forum_Posts").add(contents).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
             @Override

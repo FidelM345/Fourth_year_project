@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AfyaHelp</string>
+    <string name="app_name">Smart FirstAid</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
@@ -8,13 +8,24 @@
     <string name="action_settings">Settings</string>
 
 
-    <string-array name="array_spinner">
+    <string name="provine_name">Select your Province</string>
+
+    <string name="err_email">Invalid email</string>
+
+    <string name="err_password_confirmation">
+     The passwords do not match
+    </string>
+
+
+    <string-array name="array_province_name">
         <item>Nairobi</item>
         <item>Rift valley</item>
         <item>Central</item>
         <item>Nyanza</item>
         <item>Western</item>
         <item>Eastern</item>
+        <item>Coast</item>
+        <item>North Eastern</item>
     </string-array>
 
 
@@ -216,9 +227,8 @@
         &#8226;Reassure the person and advice hem to rest or stay still as you await the ambulance to arrive.\n\n
 
     </string>
-
-
-
+    <string name="title_activity_ambulance__location">Map</string>
+    <string name="title_activity_street_view">Map</string>
 
 
 </resources>

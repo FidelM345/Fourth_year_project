@@ -1,6 +1,7 @@
 package com.example.thebeast.afyahelp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -15,11 +16,14 @@ import com.bumptech.glide.request.RequestOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -59,8 +63,29 @@ public class MypostFragment_Adapter extends RecyclerView.Adapter<MypostFragment_
     public void onBindViewHolder(@NonNull final MypostFragment_Adapter.ViewHolder holder, int position) {
 
         final String blogpostid=bloglist.get(position).BlogPostIdString;//gets the blog post id
-        String thumb_uri=bloglist.get(position).getThumbUri();
-        String title=bloglist.get(position).getTitle();
+        final String thumb_uri=bloglist.get(position).getThumbUri();
+        final String title=bloglist.get(position).getTitle();
+        final String image_uri=bloglist.get(position).getImageUri();
+        final String description=bloglist.get(position).getDescription();
+
+
+
+        holder.edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent=new Intent(context,Edit_Forum_post.class);
+                intent.putExtra("image_uri",image_uri);
+                intent.putExtra("title",title);
+                intent.putExtra("description",description);
+                intent.putExtra("thumb_uri",thumb_uri);
+                intent.putExtra("blogpost_id",blogpostid);
+
+
+                context.startActivity(intent);
+
+            }
+        });
 
 
 
@@ -129,6 +154,8 @@ public class MypostFragment_Adapter extends RecyclerView.Adapter<MypostFragment_
          holder.deletepost(blogpostid,position);
 
 
+
+
     }
 
     @Override
@@ -141,7 +168,7 @@ public class MypostFragment_Adapter extends RecyclerView.Adapter<MypostFragment_
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         View mView;
-        TextView title,like_count,unlike_count;
+        TextView title,like_count,unlike_count,edit;
         CircleImageView profile_pic;
         ImageView delete_btn;
 
@@ -155,6 +182,8 @@ public class MypostFragment_Adapter extends RecyclerView.Adapter<MypostFragment_
             mView=itemView;
 
             delete_btn=mView.findViewById(R.id.mypost_delete_btn);
+
+            edit=mView.findViewById(R.id.mypost_readmore);
 
 
 

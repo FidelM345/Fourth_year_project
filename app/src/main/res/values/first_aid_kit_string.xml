@@ -1,2 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+
+         <string name="tool_scissors">
+        Used for tasks such as cutting away clothing to expose injured areas
+             to be able to treat the wounds better. But most commonly used for cutting gauze
+             or adhesive bandages to an appropriate length.
+
+        </string>
+
+    <string name="tool_adhesive_bandage">
+       Also known as plaster, it is a small medical dressing used for injuries not serious
+        enough to require a full-size bandage.
+
+        </string>
+
+    <string name="tool_cotton">
+       For medical purposes, cotton pads are used to stop
+    or prevent bleeding from minor punctures such as
+    injections or venipuncture.usually used for cleaning wounds
+        and for padding and protection, not really for applying onto open wounds as
+        the free fibres can break away and stay in the wound
+
+        </string>
+
+
+    <string name="tool_gauze">
+      Used for absorbing fluids, as well as dressing and protecting wounds. Sterile gauze
+        act as a barrier to prevent contaminants from entering any wound area that it covers
+        and absorbs ny blood or fluid that seeps out of the wound.
+
+        </string>
+
+    <string name="tool_gloves">
+      Medical gloves are an essential everyday item for all
+        healthcare professionals working in a healthcare environment.  Gloves not only protect the wearer
+        but they also create a safety zone for both healthcare providers and patients.
+        All medical gloves are disposable, single-use items and they are available in a variety of different
+        materials, such as Latex, Nitrile Rubber, Vinyl, and Neoprene.
+
+        </string>
+
+
+    <string name="tool_elastic">
+      Multi-purpose bandages for sprains, strains and hard-to-bandage areas.
+        For both types of injuries, the first aid equipment of choice is elastic bandages.
+        Elastic bandages reduce blood flow to the injured area by providing even and localized pressure consequently
+        limiting swelling. These types bandages can also be used to stabilize splints.
+
+        </string>
+
+    <string name="tool_adhesive_tape">
+     Different adhesive tapes have different uses due to the properties they have. They are mainly used for holding dressing in place.
+        Zinc Oxide tape is used for immobilisation of joints. Elasticated Adhesive
+        Bandages (EAB) are regularly used to provide flexible support. Non woven paper tape for dressing retention.
+        Easily tearable breathable plastic tape for dressing retention.
+        For holding dressings in place in a moist environment.
+        </string>
+
+
+    <string name="tool_soap">
+    Mild soap used to gently clean the area around the wound.
+        It kills any pathogenic microbe
+        that my cause infection to the wound.
+        </string>
+
+
+    <string name="tool_tweezer">
+     Tweezers are an important tool to have in any first aid kit
+        regardless of how basic your kit is. Tweezers can be used to remove debris such as glass, dirt,
+        or splinters from a wound.
+        They can also be used to remove stingers left behind by bees.
+        </string>
+
+    <string name="tool_thermometer">
+    A first-aid kit should contain a thermometer to measure body temperature.
+        An oral digital thermometer is probably the best choice.
+        Digital thermometers used in the ear are more accurate but also more expensive.
+        Fever can be relieved with paracetamol or ibuprofen.
+        </string>
+
+
+
+</resources>

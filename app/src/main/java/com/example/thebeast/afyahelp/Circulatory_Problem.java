@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
@@ -17,6 +18,17 @@ public class Circulatory_Problem extends AppCompatActivity {
         setContentView(R.layout.activity_circulatory__problem);
         listView=(ListView) findViewById(R.id.list_res);
 
+        ImageView back_btn=findViewById(R.id.id_backmain);
+
+        back_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent in=new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(in);
+
+            }
+        });
 
 
         String[]description=getResources().getStringArray(R.array.array_circulatory_problem);

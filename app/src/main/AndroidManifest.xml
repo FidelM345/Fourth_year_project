@@ -10,16 +10,18 @@
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
+    <uses-feature android:name="android.hardware.location.gps" />
+
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
-         location permissions for the 'MyLocation' functionality. 
+         location permissions for the 'MyLocation' functionality.
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/appicon"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -34,20 +36,20 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".Register" />
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".Register"></activity>
         <activity android:name=".Profile" />
         <activity android:name=".Forum_post" />
         <activity android:name=".Forum_page" />
         <activity android:name=".comment" />
         <activity android:name=".Donor_Registration" />
-        <activity android:name=".BloodActivity" />
+        <activity
+            android:name=".BloodActivity"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.thebeast.afyahelp.MainActivity" />
+        </activity>
         <activity android:name=".GalleryActivity" />
         <activity android:name=".MyAccount" />
         <activity android:name=".ViewAlerts" />
@@ -57,7 +59,7 @@
              Note that the API key is linked to the encryption key used to sign the APK.
              You need a different API key for each encryption key, including the release key that is used to
              sign the APK for publishing.
-             You can define the keys for the debug and release targets in src/debug/ and src/release/. 
+             You can define the keys for the debug and release targets in src/debug/ and src/release/.
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -84,7 +86,78 @@
         <activity android:name=".Heart_Attack" />
         <activity android:name=".Agina" />
         <activity android:name=".Fainting" />
-        <activity android:name=".Shock"></activity>
+        <activity android:name=".Shock" />
+        <activity
+            android:name=".EmergencyLines"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.thebeast.afyahelp.MainActivity" />
+        </activity>
+        <activity android:name=".EmergencyLine_View" />
+        <activity
+            android:name=".Ambulance_Location"
+            android:label="@string/title_activity_ambulance__location"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.thebeast.afyahelp.EmergencyLine_View" />
+        </activity>
+        <activity android:name=".Gpslocation" />
+        <activity android:name=".Web_View" />
+        <activity android:name=".FirstAidWeb" />
+        <activity android:name=".Edit_Account" />
+        <activity
+            android:name=".StreetView"
+            android:label="@string/title_activity_street_view" />
+        <activity android:name=".Respiratory_problem" />
+        <activity android:name=".Adult_Chock" />
+        <activity android:name=".Child_chock" />
+        <activity android:name=".Chest_wound" />
+        <activity android:name=".Asthma"></activity>
+        <activity android:name=".Fume_inhalation" />
+        <activity android:name=".Poison_main" />
+        <activity android:name=".Food_poisoning" />
+        <activity android:name=".Swallowed_poison" />
+        <activity android:name=".Alcohol_poisoning" />
+        <activity android:name=".Bites_problem" />
+        <activity android:name=".Snake_bite" />
+        <activity android:name=".Spider_bite" />
+        <activity android:name=".Bee_sting" />
+        <activity android:name=".Jelly_sting" />
+        <activity android:name=".Dog_bite" />
+        <activity android:name=".Bleeding_main" />
+        <activity android:name=".Eye_injury" />
+        <activity android:name=".Bruising" />
+        <activity android:name=".Ear_injury" />
+        <activity android:name=".Heat_main" />
+        <activity android:name=".Burn_scalds" />
+        <activity android:name=".Electrical_burns" />
+        <activity android:name=".Chemical_burns" />
+        <activity android:name=".Surn_burn" />
+        <activity android:name=".Hypothermia" />
+        <activity android:name=".Head_main" />
+        <activity android:name=".Seizure" />
+        <activity android:name=".Stroke" />
+        <activity android:name=".Cerebral_compression" />
+        <activity android:name=".Cpr_main" />
+        <activity android:name=".General_cpr" />
+        <activity android:name=".Adult_cpr" />
+        <activity android:name=".Child_cpr" />
+        <activity android:name=".Infant_cpr" />
+        <activity android:name=".Recovery_position" />
+        <activity android:name=".Password_reset" />
+        <activity android:name=".FirstAid_Kit" />
+        <activity android:name=".Scissors" />
+        <activity android:name=".Splash_screen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Quick_access" />
+        <activity android:name=".Edit_Forum_post"></activity>
     </application>
 
 </manifest>

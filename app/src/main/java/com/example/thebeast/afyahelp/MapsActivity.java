@@ -1,6 +1,7 @@
 package com.example.thebeast.afyahelp;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
@@ -16,7 +17,10 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
@@ -35,6 +39,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -48,18 +53,19 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback,
-GoogleApiClient.ConnectionCallbacks,GoogleApiClient.OnConnectionFailedListener, com.google.android.gms.location.LocationListener{
+public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback,
+        GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, com.google.android.gms.location.LocationListener {
 
 
     private GoogleMap mMap;
     LocationManager locationManager;
     LocationListener locationListener;
+    boolean mapReady = false;
 
-    double latitude,longitude;
-    private  Location mLastLocation;
-    private Marker marker;
-    private LocationRequest locationRequest;
+    double latitude, longitude;
+    Location mLastLocation;
+    Marker marker;
+    LocationRequest locationRequest;
     GoogleApiService mService;
     BottomNavigationView bottomNavigationView;
 
@@ -67,24 +73,30 @@ GoogleApiClient.ConnectionCallbacks,GoogleApiClient.OnConnectionFailedListener, 
     /*FusedLocationProviderClient fusedLocationProviderClient;
     LocationCallback locationCallback;*/
     GoogleApiClient mGoogleApiClient;
+    Toolbar toolbar;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
+        toolbar = findViewById(R.id.nearby_toolbar);
+        setSupportActionBar(toolbar);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-        bottomNavigationView =findViewById(R.id.map_navigation);
+
+        bottomNavigationView = findViewById(R.id.map_navigation);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-                switch (item.getItemId()){
+                switch (item.getItemId()) {
                     case R.id.menu_hospital:
                         nearByPlace("hospital");
                         break;
@@ -97,7 +109,6 @@ GoogleApiClient.ConnectionCallbacks,GoogleApiClient.OnConnectionFailedListener, 
                         nearByPlace("restaurant");
                         break;
 
-
                     default:
                         return false;
                 }
@@ -107,12 +118,14 @@ GoogleApiClient.ConnectionCallbacks,GoogleApiClient.OnConnectionFailedListener, 
         });
 
         //initialize service
-        mService=Common.getGoogleApiService();
-
+        mService = Common.getGoogleApiService();
 
 
 
     }
+
+
+
 
     private void nearByPlace(final String placeType) {
         mMap.clear();
@@ -138,7 +151,8 @@ GoogleApiClient.ConnectionCallbacks,GoogleApiClient.OnConnectionFailedListener, 
                                 markerOptions.title(placeName);
 
                                 if(placeType.equals("hospital"))
-                                markerOptions.icon(BitmapDescriptorFactory.fromResource(R.mipmap.hospitaly));
+                              //  markerOptions.icon(BitmapDescriptorFactory.fromResource(R.mipmap.hospitaly));
+                                    markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
 
                                 else  if(placeType.equals("pharmacy"))
                                     markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
@@ -201,6 +215,7 @@ GoogleApiClient.ConnectionCallbacks,GoogleApiClient.OnConnectionFailedListener, 
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
+        mapReady=true;
         mMap = googleMap;
 
 
@@ -294,12 +309,62 @@ GoogleApiClient.ConnectionCallbacks,GoogleApiClient.OnConnectionFailedListener, 
                   .title("your position")
                   .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
 
+        //camera position builder
+          CameraPosition cameraPosition=CameraPosition.builder().target(latLng).tilt(65).build();
           marker=mMap.addMarker(markerOptions);
-          mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-          mMap.animateCamera(CameraUpdateFactory.zoomTo(11));
+          mMap.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+          mMap.animateCamera(CameraUpdateFactory.zoomTo(12));
 
           if(mGoogleApiClient!=null)
               LocationServices.FusedLocationApi.removeLocationUpdates(mGoogleApiClient,this);
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.map_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.map_hybrid) {
+
+            if(mapReady){
+
+                mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+            }
+
+        }
+
+        if (id == R.id.map_satellite) {
+
+            if(mapReady){
+
+                mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+            }
+
+
+        }
+
+        if (id == R.id.map_std) {
+
+            if(mapReady){
+
+                mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+            }
+
+
+        }
+
+
+
+        return true;
     }
 
     /*

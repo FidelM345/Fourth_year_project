@@ -2,8 +2,6 @@
     package="com.example.thebeast.afyahelp">
 
     <application>
-        <activity android:name="com.example.thebeast.afyahelp.Nose_bleeding"
->
-        </activity>
+        <activity android:name="com.example.thebeast.afyahelp.Nose_bleeding"></activity>
     </application>
 </manifest>

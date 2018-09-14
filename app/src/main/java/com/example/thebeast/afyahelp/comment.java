@@ -106,6 +106,12 @@ public class comment extends AppCompatActivity {
             @Override
             public void onEvent(QuerySnapshot queryDocumentSnapshots, FirebaseFirestoreException e) {
 
+                if (e != null) {
+                    // Log.w("Beast", "Listen failed.", e);
+
+                    return;
+                }
+
 
                 for (DocumentChange documentChange : queryDocumentSnapshots.getDocumentChanges()) {
 
@@ -121,6 +127,13 @@ public class comment extends AppCompatActivity {
                         firestore.collection("user_table").document(comment_user_id).addSnapshotListener(comment.this,new EventListener<DocumentSnapshot>() {
                             @Override
                             public void onEvent(DocumentSnapshot documentSnapshot, FirebaseFirestoreException e) {
+
+
+                                if (e != null) {
+                                    // Log.w("Beast", "Listen failed.", e);
+
+                                    return;
+                                }
 
                                 if(documentSnapshot.exists()){
 
@@ -154,6 +167,11 @@ public class comment extends AppCompatActivity {
 
     }
 
+    private long timeStamp() {
+        Long timestamp=System.currentTimeMillis()/1000;
+        return timestamp;
+    }
+
 
 
     private void updateTocommentTable() {
@@ -163,7 +181,7 @@ public class comment extends AppCompatActivity {
             Map<String,Object>contents=new HashMap<>();
             contents.put("message",comment_text.getText().toString().trim());
             contents.put("user_id",currentUser_id);
-            contents.put("time_stamp", FieldValue.serverTimestamp());
+            contents.put("time_stamp", timeStamp());
 
             firestore.collection("Forum_Posts").document(blog_post_id).
                     collection("Comments").add(contents).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {

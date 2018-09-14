@@ -1,0 +1,55 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:id="@+id/emergencylines_layout"
+
+    android:paddingBottom="@dimen/cardview_default_elevation"
+    android:paddingTop="@dimen/cardview_default_elevation">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/profile_pic"
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                android:layout_margin="6dp"
+                android:layout_weight="1"
+                android:src="@drawable/cpr"
+                />
+
+            <TextView
+                android:id="@+id/ambulance_name"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="6"
+                android:text="disease"
+                android:textColor="@android:color/background_dark"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:id="@+id/ambulance_call"
+                android:layout_weight="1"
+                android:layout_margin="6dp"
+                android:layout_gravity="center_vertical"
+                android:src="@mipmap/call_icon"
+                android:layout_width="25dp"
+                android:layout_height="25dp" />
+
+        </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:background="#000000"
+        />
+
+</LinearLayout>

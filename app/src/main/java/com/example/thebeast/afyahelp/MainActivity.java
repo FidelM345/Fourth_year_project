@@ -1,5 +1,7 @@
 package com.example.thebeast.afyahelp;
 
+import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -8,6 +10,7 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.view.MenuItemCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.CardView;
 import android.view.Gravity;
 import android.view.View;
@@ -34,6 +37,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.io.IOException;
+
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity extends AppCompatActivity
@@ -46,9 +51,11 @@ public class MainActivity extends AppCompatActivity
     CircleImageView user_profile_pic;
     Connection_Detector cd;
     int currentPost=0;
+    Snackbar snackbar;
+    String check_name,check_imageuri=null;
 
-
-    CardView card_cpr,card_respiratory,card_stings,card_bleeding,card_circulatory,card_poison,card_heat,card_head;
+    CardView card_cpr,card_respiratory,card_stings,card_bleeding,card_circulatory,
+            card_poison,card_heat,card_head;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,12 +64,14 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+         snackbar = Snackbar.make(findViewById(R.id.drawer_layout), "no internet connection", Snackbar.LENGTH_INDEFINITE)
+                 .setAction("Action", null);
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                mailMe();
             }
         });
 
@@ -80,12 +89,11 @@ public class MainActivity extends AppCompatActivity
         mfirestore = FirebaseFirestore.getInstance();
 
 
-
         cd=new Connection_Detector(this);
 
 
         gallery=(TextView) MenuItemCompat.getActionView(navigationView.getMenu().
-                findItem(R.id.nav_slideshow));
+                findItem(R.id.nav_forum));
 
 
         //referencing cardviews
@@ -94,12 +102,59 @@ public class MainActivity extends AppCompatActivity
         card_bleeding=findViewById(R.id.Bleeding_card);
         card_stings=findViewById(R.id.Stings_card);
         card_head=findViewById(R.id.Head_card);
-        card_heat=findViewById(R.id.Head_card);
+        card_heat=findViewById(R.id.Heat_card);
         card_poison=findViewById(R.id.Poison_card);
         card_cpr=findViewById(R.id.CPR_card);
 
 
         card_circulatory.setOnClickListener(this);
+        card_respiratory.setOnClickListener(this);
+        card_poison.setOnClickListener(this);
+        card_stings.setOnClickListener(this);
+        card_bleeding.setOnClickListener(this);
+        card_heat.setOnClickListener(this);
+        card_head.setOnClickListener(this);
+        card_cpr.setOnClickListener(this);
+
+    }
+
+
+    private void mailMe() {
+
+
+        AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
+        builder1.setTitle("Send Mail");
+        builder1.setMessage("Are you sure you want to send Mail");
+        builder1.setCancelable(true);
+        builder1.setIcon(R.mipmap.email_icon);
+
+        builder1.setPositiveButton(
+                "Yes",
+                new DialogInterface.OnClickListener() {
+                    @SuppressLint("MissingPermission")
+                    public void onClick(DialogInterface dialog, int id) {
+                        String[]recepients= {"fidelomolo7@gmail.com"};
+
+                        Intent intent=new Intent(Intent.ACTION_SEND);
+                        intent.putExtra(Intent.EXTRA_EMAIL,recepients);
+                        intent.putExtra(Intent.EXTRA_SUBJECT,"App reviews, comments, complaints and ratings");
+                        //EXTRA_SUBJECT,EXTRA_TEXT
+
+                        intent.setType("message/rfc822");//opening email clients
+                        startActivity(Intent.createChooser(intent,"Choose an email app to send mail"));
+                    }
+                });
+
+        builder1.setNegativeButton(
+                "No",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+
+        AlertDialog alert11 = builder1.create();
+        alert11.show();
 
 
 
@@ -107,14 +162,12 @@ public class MainActivity extends AppCompatActivity
 
 
 
+    //loads user profile details on the navigation drawer
     private void initializeCountDrawer(){
-
         //Gravity property aligns the text
         gallery.setGravity(Gravity.CENTER_VERTICAL);
         gallery.setTypeface(null, Typeface.BOLD);
         gallery.setTextColor(getResources().getColor(R.color.colorAccent));
-
-
 
         mfirestore.collection("Forum_Posts").addSnapshotListener(MainActivity.this,new EventListener<QuerySnapshot>() {
             @Override
@@ -125,25 +178,16 @@ public class MainActivity extends AppCompatActivity
 
                     return;
                 }
-
                 if (!queryDocumentSnapshots.isEmpty()){
 
                     currentPost=queryDocumentSnapshots.size();
                     gallery.setText(Integer.toString(currentPost));
-
                 }
-
 
             }
         });
 
-
-
-
-
     }
-
-
 
 
 
@@ -157,44 +201,45 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
+
+
     @Override
     protected void onStart() {
         super.onStart();
-
         if(mAuth.getCurrentUser()==null){
             Intent intent=new Intent(MainActivity.this,Login.class);
             startActivity(intent);
         }
 
-        user_profile_details();
 
-        initializeCountDrawer();
+        try {
+            if(!cd.isInternetConnected()){
+                snackbar.setAction("DISMISS", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        snackbar.dismiss();
+                    }
+                });
+                snackbar.show();
+            }else
 
 
-
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+            {snackbar.dismiss();
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
-        return super.onOptionsItemSelected(item);
+
+        user_profile_details();
+        //test();
+        initializeCountDrawer();
+
     }
+
+
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -202,26 +247,12 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-
-            if(cd.isConnected()){
-
-                Toast.makeText(MainActivity.this, "Connected ", Toast.LENGTH_LONG).show();
-
-            }else {
-
-                Toast.makeText(MainActivity.this, "Not Connected ", Toast.LENGTH_LONG).show();
-
-            }
-
-
-        } else if (id == R.id.nav_gallery) {
+         if (id == R.id.nav_blood) {
             Intent intent=new Intent(MainActivity.this,BloodActivity.class);
             startActivity(intent);
 
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_forum) {
 
 
            // currentPost=0;
@@ -231,17 +262,17 @@ public class MainActivity extends AppCompatActivity
 
 
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_nearby_hospital) {
 
             Intent intent=new Intent(MainActivity.this,MapsActivity.class);
             startActivity(intent);
 
-        } else if (id == R.id.nav_share) {
+        } else if (id == R.id.nav_profile) {
             Intent intent=new Intent(MainActivity.this,MyAccount.class);
             startActivity(intent);
 
 
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.nav_logout) {
             mAuth.signOut();
             Intent intent=new Intent(MainActivity.this,Login.class);
             startActivity(intent);
@@ -252,12 +283,26 @@ public class MainActivity extends AppCompatActivity
             startActivity(intent);
 
 
+        }else if (id == R.id.nav_ambulance) {
+            Intent intent=new Intent(MainActivity.this,EmergencyLines.class);
+            startActivity(intent);
+
+        }else if (id == R.id.nav_website) {
+            Intent intent=new Intent(MainActivity.this,FirstAidWeb.class);
+            startActivity(intent);
+
+        }else if (id == R.id.nav_first_aid_kit) {
+            Intent intent=new Intent(MainActivity.this,FirstAid_Kit.class);
+            startActivity(intent);
         }
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
 
 
     public void user_profile_details(){
@@ -274,9 +319,9 @@ public class MainActivity extends AppCompatActivity
                             String fname=task.getResult().getString("fname");
                             String lname=task.getResult().getString("lname");
                             String location=task.getResult().getString("location");
-                            String image=task.getResult().getString("imageuri");
+                            check_imageuri=task.getResult().getString("imageuri");
 
-                            //ou need to inflate the header view as it is not inflated automatically .
+                            //you need to inflate the header view as it is not inflated automatically .
                             View header = navigationView.getHeaderView(0);
                             user_names = (TextView) header.findViewById(R.id.main_name);
                             user_location=header.findViewById(R.id.main_location);
@@ -288,11 +333,12 @@ public class MainActivity extends AppCompatActivity
                             RequestOptions placeHolder=new RequestOptions();
                             placeHolder.placeholder(R.drawable.profile_placeholder);
 
-                            Glide.with(MainActivity.this).setDefaultRequestOptions(placeHolder).load(image).into(user_profile_pic);
+                            Glide.with(MainActivity.this).setDefaultRequestOptions(placeHolder).load(check_imageuri).into(user_profile_pic);
                         }
                         else{
                             Toast.makeText(MainActivity.this, "No data has been saved", Toast.LENGTH_LONG).show();
-
+                            Intent in=new Intent(getApplicationContext(),Profile.class);
+                            startActivity(in);
                         }
                     }
 
@@ -315,6 +361,12 @@ public class MainActivity extends AppCompatActivity
 
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Glide.with(getApplicationContext()).pauseRequests();
+    }
+
 
     @Override
     public void onClick(View v) {
@@ -325,8 +377,48 @@ public class MainActivity extends AppCompatActivity
                 startActivity(i);
 
                 break;
+            case R.id.Respiratory_card:
+                Intent in=new Intent(getApplicationContext(),Respiratory_problem.class);
+                startActivity(in);
 
-                default:
+                break;
+            case R.id.Poison_card:
+                Intent in1=new Intent(getApplicationContext(),Poison_main.class);
+                startActivity(in1);
+
+                break;
+
+            case R.id.Stings_card:
+                Intent in2=new Intent(getApplicationContext(),Bites_problem.class);
+                startActivity(in2);
+
+                break;
+
+            case R.id.Bleeding_card:
+                Intent in3=new Intent(getApplicationContext(),Bleeding_main.class);
+                startActivity(in3);
+
+                break;
+            case R.id.Heat_card:
+                Intent in4=new Intent(getApplicationContext(),Heat_main.class);
+                startActivity(in4);
+
+                break;
+
+            case R.id.Head_card:
+                Intent in5=new Intent(getApplicationContext(),Head_main.class);
+                startActivity(in5);
+
+                break;
+
+            case R.id.CPR_card:
+                Intent in6=new Intent(getApplicationContext(),Cpr_main.class);
+                startActivity(in6);
+
+                break;
+
+
+            default:
                     break;
 
         }

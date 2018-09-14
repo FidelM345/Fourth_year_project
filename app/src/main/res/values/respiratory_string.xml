@@ -1,2 +1,176 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+
+
+    <string-array name="array_respiratory_problem">
+        <item>Adult and Child Chocking</item>
+        <item>Infant Chocking</item>
+        <item>Chest Wounds</item>
+        <item>Asthma</item>
+        <item>Fume inhalation</item>
+    </string-array>
+
+
+    //Adult chocking
+    <string name="adultchock_about_content">
+Chocking occurs when a person\'s airways gets suddenly blocked
+        either fully or partly by a foreign object hence preventing
+        them from breathing.\n
+<b>NOTE:</b> The instructions below should be used to help an adult or child above one year.
+    </string>
+
+    <string name="title_mild"><u>Mild Choking</u> </string>
+    <string name="mild_content">
+        In mild chocking, the airway is partly blocked and the victim will be able to speak, cry, cough or breathe.\n\n
+        &#8226;Sudden fainting and dizziness.\n\n
+        &#8226;If coughing, encourage the victim to keep coughing to try clear the blockage.\n\n
+        &#8226; Ask the victim to try spit out any object that could be in the mouth.\n\n
+        &#8226;DO NOT attempt to put your fingers in their mouth to help them as they may bite you accidentally.\n
+        &#8226;If coughing does not work start blows (Procedure is shown in severe chocking).
+</string>
+
+
+
+    <string name="title_severe"><u>Severe Chocking</u></string>
+    <string name="severe_content">
+      In severe chocking the airway is wholly blocked and the victim is not
+able to speak, cry, cough or breathe. Without urgent help the victim can
+become unconscious. The main aim is to give the victim back blows and abdominal thrust.
+
+    </string>
+
+    <string name="title_back"><u>Back blows</u></string>
+    <string name="back_content">
+      &#8226; Stand behind the victim and slightly to one side.\n\n
+     &#8226;Support their chest with one hand. Lean the person forward so that the object blocking their airway will come out of their mouth,
+        rather than moving further down the airway.\n\n
+     &#8226;Give up to 5 sharp blows between the victim\'s shoulder with the
+        heal of your hand (the region between the palm of your hand and wrist).\n\n
+     &#8226;Check if the blockage has been cleared.\n\n
+     &#8226;If not, give up to 5 abdominal thrusts.\n
+    </string>
+    <string name="title_abdominal"><u>Abdominal thrust</u></string>
+    <string name="abdominal_content">
+        &#8226; Stand behind the victim.\n\n
+        &#8226;Place your arms around their waist and bend them forward.\n\n
+        &#8226;Clench one fist and place it right above their belly button.\n\n
+        &#8226;Put the other hand on top of your fist and pull sharply inwards and upwards.\n\n
+        &#8226;Repeat this movement up to 5 times.\n\n
+        &#8226;If the victim\'s airway is still blocked after the back blows and abdominal thrust, call your local emergency number.\n\n
+        &#8226;Continue with cycles of 5 back blows and 5 abdominal thrust until the medical team arrives.\n\n
+        &#8226;If the victim develops other complications after chocking such as
+        coughing or they feel something is still stuck in their throat seek for urgent medical help.\n\n
+    </string>
+
+
+
+
+
+    //infant chocking
+    <string name="title_infant_back"><u>Back blows</u></string>
+    <string name="infant_back_content">
+       &#8226;  The steps below should be applied to babies under 1 year.\n\n
+       &#8226;If the baby is able to cough, encourage them to do so but if the baby is unable to cry, cough or breathe, back blows may help.\n\n
+       &#8226;Lie the baby face down along or across your lap, with their head lower than their bottom.\n\n
+        &#8226;Support the baby\'s head from underneath by placing your thumb on one side of their jaw and one or two fingers on the other side. This is to open their airway.\n\n
+       &#8226;Be careful not to press on the neck or the soft skin under the lower jaw.\n\n
+       &#8226;Give upto 5 firm slaps to the baby's back between their shoulder blades with the heel of your hand.\n\n
+        &#8226;Pause between each blow to check if the foreign object has been cleared.\n\n
+       &#8226;If the airway is still blocked, give upto 5 chest thrust.
+    </string>
+
+    <string name="title_infant_chest"><u>Chest thrust</u></string>
+    <string name="infant_chest_content">
+        &#8226;For babies below 1 year chest thrust and not abdominal thrust shoud be used.\n\n
+ &#8226;Lie the baby face up along your arm, and lay your arm along or across your lap to support it.\n\n
+ &#8226;Support the back of the baby\'s head by cupping the lower part of your hand.\n\n
+ &#8226;Find the breastbone, and place 2 fingers on the lower half of it.\n\n
+ &#8226;Give 5 sharp chest pushes with your fingers, compressing the chest a third of its depth.\n\n
+ &#8226;Check whether the airway has been cleared after 3 cycles of back blows and chest thrust, call your emergency local number.\n\n
+ &#8226;Continue with the cycles of the back slaps and chest thrusts until help arrives.\n\n
+ &#8226;Even if the blockage has been removed seek for medical help,
+        since some materials might have remained or the baby mighthave been injured during the attempts to remove the object.\n\n
+    </string>
+
+
+
+    //Chest wound
+    <string name="title_chest_wound"><u>Recognition</u></string>
+    <string name="chest_wound_content">
+        Sucking chest wounds (whole in the chest) dangerous since they may lead to collapse of the lungs. It is characterized by:\n\n
+&#8226;Difficult, painful, rapid, shallow and uneven breathing.\n
+&#8226;Coughing frothy red blood.\n
+&#8226;A cracking feeling of the skin around the injured site.\n
+&#8226;Blood bubbling out of the wound.\n
+&#8226;Sucking sound.\n
+&#8226;Rapid, weak pulse.\n
+&#8226;Pale, cool, clammy skin.\n
+&#8226;Distended neck veins.\n
+&#8226;Hypoxia (a condition in which the body tissues are deprived enough oxygen).
+
+    </string>
+
+    <string name="title_chest_treatmen"><u>Treatment</u></string>
+    <string name="treatment_chest_content">
+
+&#8226;Treating sucking chest wound involves keeping air from going in while letting extra air out.\n\n
+&#8226;Advice the patient to lean towards the side of injury and use the palm of his hand to cover the wound.\n\n
+&#8226;Place a sterile dressing over the wound and surrounding area and cover it with bandages or kitchen film so that the dressing is taut.\n\n
+&#8226;Call for an ambulance.\n\n
+&#8226;While waiting for help, continue supporting the patient in a semi sitting position leaning on the injured side.\n\n
+    </string>
+
+
+    //Asthma
+
+    <string name="asthma_about_content">
+        Asthma is a long term lung disease that inflames and narrows the airways.
+    </string>
+
+    <string name="asthma_recognition_content">
+&#8226;Difficulty in breathing or speaking.\n
+&#8226;Wheezing.\n
+&#8226;Cyanosis characterized by Grey-blue tinge to the lips, earlobes and nail beds.\n
+&#8226;Coughing and Hypoxia (a condition in which the body tissues are deprived enough oxygen).\n </string>
+    &#8226;Distress and anxiety.
+
+    <string name="asthma_treatment_content">
+&#8226;Calm and reassure the patient and ask them to breath slowly and deeply since this will help them control their breathing.\n\n
+&#8226;If the patient has an inhaler prescribed to them by a doctor, assist them in taking the recommended dose.\n\n
+&#8226;If the patient does not have, use the one in the first aid kit or borrow from someone else.\n\n
+&#8226;Help the patient to sit down in a comfortable position.\n\n
+&#8226;If the attack persists and are severe, call for medical assistance.\n\n
+    </string>
+
+
+
+//Fume inhalation
+    <string name="fume_priority">
+       <u>Priority</u>
+    </string>
+
+    <string name="fume_priority_content">
+&#8226;To restore adequate breathing.\n
+&#8226;To obtain urgent medical attention and call the emergency.\n
+    </string>
+
+    <string name="fume_treatment_content">
+&#8226;Call for medical assistance and fire services.\n\n
+&#8226;Move the victim from the site of fumes to a area where there is free flow of fresh air.\n\n
+&#8226;Monitor the victim\'s responsiveness and breathing.\n\n
+&#8226;If the victim can sit upright, ask him or her to take slow breaths.\n\n
+&#8226;Treat for obvious burns if present.\n\n
+&#8226;If the victim is not breathing, perform CPR (check CPR steps in this app).\n\n
+&#8226;<b>DO NOT</b> make a rescue attempt that also puts your own life at risk.\n\n
+&#8226;<b>DO NOT</b> enter a fume filled building without proper gear.\n\n
+&#8226;All suspected inhalation injuries require medical attention.\n\n
+    </string>
+
+
+
+
+
+
+
+
+</resources>

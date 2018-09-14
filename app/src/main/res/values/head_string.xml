@@ -1,2 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+
+    <string-array name="array_head_problem">
+        <item>Seizures</item>
+        <item>Stroke</item>
+        <item>Cerebral compression</item>
+    </string-array>
+
+
+
+    //seizure injury
+    <string name="seizure_about_content">
+   Seizure is the involuntary contraction of the muscles caused by
+        the disturbance of the brain electrical activity. It is also known as fit or convulsion.
+ </string>
+
+
+
+    <string name="seizure_recognition_content">
+  &#8226; Temporary confusion.\n
+ &#8226;A staring spell.\n
+ &#8226;Uncontrollable jerking movements of the arms and legs.\n
+ &#8226;Rigidity and arching of the back.\n
+ &#8226;Sudden unconsciousness.
+ </string>
+
+
+    <string name="seizure_treatment_content">
+ &#8226; If you see the victim falling, try to ease their fall and move them away from any thing that could cause injury e.g. busy highway.\n\n
+ &#8226;Make space around the victim by asking bystanders to move away and cushion the victim\'s
+        head by placing a soft padding underneath it on the ground.\n\n
+ &#8226;Loosen any tight clothing around their neck such as tie or collar to allow them breath freely.\n\n
+ &#8226;When the seizure stops, turn them so that they lie on their side.\n\n
+ &#8226;Stay with the victim and talk to them calmly until they have recovered fully.\n\n
+ &#8226;Also note the time when the seizure starts and finishes.\n\n
+&#8226; <b>DO NOT</b> put anything in the victim\'s mouth as this could cause harm.\n\n
+
+        <b>When to see a doctor:\n\n</b>
+
+ &#8226;When the seizure has lasted more than five minutes.\n\n
+ &#8226;Breathing does not return after seizure stops.\n\n
+ &#8226;The victim experiences high fever.\n\n
+ &#8226;It is the first time the victim experiences fever.\n\n
+ &#8226;A second seizure follow immediately.\n\n
+ &#8226;The victim has diabetes.\n\n
+ &#8226;If the victim injured him or herself during the seizure.\n\n\n
+ </string>
+
+
+
+
+
+    //stroke injury
+    <string name="stroke_about_content">
+   Stroke is a life threatening medical condition that occurs when blood supply to
+        sections of the brain is cut off due to various reasons such as clot or a ruptured blood vessel.
+
+ </string>
+
+    <string name="stroke_recognition_content">
+  &#8226;The victim has a slurred speech or even he or she may be unable to talk completely despite appearing to be awake.\n
+&#8226;Uneven facial movements. The face may have dropped  on one side and the victim may be unable to smile.\n
+&#8226;The victim may be unable to lift both limbs due to numbness or weakness in one of the limbs.\n
+&#8226;Sudden severe headache.\n
+&#8226;Unexpected dizziness and unsteadiness that may make the victim to appear to be drunk.\n
+&#8226;Blurred or loss of vision particularly in one eye.\n
+&#8226;Sudden or gradual loss of consciousness.
+ </string>
+
+
+    <string name="stroke_treatment_content">
+ &#8226;Call for emergency medical help.\n\n
+&#8226;Reassure the patient.\n\n
+&#8226;Lay the victim with the head and shoulders slightly elevated and supported. Incline the victim\'s
+        head to the affected side and place a cloth or towel on their shoulder to absorb the dribbling saliva.\n\n
+&#8226;If the victim is not breathing, perform CPR (check the procedures of CPR in this app).\n\n
+&#8226;Loosen any tight clothing that may impair the victim\'s breathing.\n\n
+    &#8226;   <b>DO NOT</b> give the victim any food to eat or drink since this may choke them.\n\n\n
+ </string>
+
+
+
+    //cerebral compression
+    <string name="cerebral_about_content">
+  It is a medical condition that occurs when there is a build up of pressure within the brain due to bleeding in the skull.
+
+ </string>
+
+    <string name="cerebral_recognition_content">
+   &#8226;History of recent head injury.\n
+ &#8226;Intense headache.\n
+ &#8226;Noisy breathing, becoming slow.\n
+ &#8226;The eye pupils are of unequal size.\n
+ &#8226;High temperatures and flushed or red face.\n
+ &#8226;Paralysis down one side of the face or body.\n
+&#8226;Drowsiness.\n
+&#8226;Strong but slowed pulse.\n
+&#8226;Noticeable change in behavior such as irritability or disorientation.
+
+ </string>
+
+
+    <string name="cerebral_treatment_content">
+&#8226;Call for emergency medical help.\n\n
+&#8226;If the victim is conscious, keep them in a comfortable resting position and reassure them.\n\n
+&#8226;Regularly monitor and note down the level of response, pulse and breathing until the medics arrive at the scene.\n\n
+&#8226;If the victim is unconscious, open the airways using the jaw thrust method and check breathing (primary survey).\n\n
+&#8226;Be prepared to give CPR i.e. chest compression and rescue breaths if the victim falls unconscious and is not breathing.\n\n
+&#8226;If the victim is breathing, try to maintain the airway in the position the casualty was found.\n\n\n
+ </string>
+
+</resources>

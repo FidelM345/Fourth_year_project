@@ -60,18 +60,23 @@ public class BlogRecycler_Adapter extends RecyclerView.Adapter<BlogRecycler_Adap
         String lname = bloglist.get(position).getLname();
 
         String image_uri = bloglist.get(position).getImageuri();
-        String location = bloglist.get(position).getLocation();
+        String thumburi= bloglist.get(position).getThumburi();
+        final Long age=bloglist.get(position).getAge();
 
+
+        String location = bloglist.get(position).getLocation();
+        String rhesus=bloglist.get(position).getRhesus();
 
         String blood_group = bloglist.get(position).getBlood_group();
 
 
         //it accesses the setDescription(description_data) method from view holder class
-        holder.setImage(image_uri);
+        holder.setImage(image_uri,thumburi);
         holder.setFname(fname_data, lname);
 
         holder.setLocation(location);
         holder.setBlood_group(blood_group);
+        holder.Rhesus.setText(rhesus);
 
         holder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,24 +84,24 @@ public class BlogRecycler_Adapter extends RecyclerView.Adapter<BlogRecycler_Adap
 
                 Intent intent=new Intent(context,GalleryActivity.class);
                 intent.putExtra("image_url",bloglist.get(position).getImageuri());
+                intent.putExtra("phoneno",bloglist.get(position).getPhone_no());
                 intent.putExtra("fname",bloglist.get(position).getFname());
                 intent.putExtra("lname",bloglist.get(position).getLname());
                 intent.putExtra("email",bloglist.get(position).getEmail());
                 intent.putExtra("blood_group",bloglist.get(position).getBlood_group());
-                intent.putExtra("age",bloglist.get(position).getAge());
+                intent.putExtra("age",age);
                 intent.putExtra("gender",bloglist.get(position).getGender());
                 intent.putExtra("location",bloglist.get(position).getLocation());
                 intent.putExtra("weight",bloglist.get(position).getWeight());
-
+                intent.putExtra("thumburi",bloglist.get(position).getThumburi());
+                intent.putExtra("rhesus",bloglist.get(position).getRhesus());
                 intent.putExtra("userid", userid);
-
 
                 context.startActivity(intent);
 
 
             }
         });
-
 
 
              }
@@ -116,10 +121,9 @@ public class BlogRecycler_Adapter extends RecyclerView.Adapter<BlogRecycler_Adap
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         View mView;
-        TextView Fname,Lname,Location,Blood_group;
+        TextView Fname,Phone_no,Location,Blood_group,Rhesus;
         CircleImageView profile_pic;
         ConstraintLayout parentLayout;
-
 
 
 
@@ -128,6 +132,7 @@ public class BlogRecycler_Adapter extends RecyclerView.Adapter<BlogRecycler_Adap
 
             mView=itemView;
             parentLayout=mView.findViewById(R.id.parent_layout);
+            Rhesus= mView.findViewById(R.id.id_rhesus);
 
         }
 
@@ -138,14 +143,16 @@ public class BlogRecycler_Adapter extends RecyclerView.Adapter<BlogRecycler_Adap
         }
 
 
-        public void setImage(String image_uri){
+        public void setImage(String image_uri,String thumb){
 
             profile_pic=mView.findViewById(R.id.mypost_image);
 
             RequestOptions placeHolder=new RequestOptions();
             placeHolder.placeholder(R.drawable.profile_placeholder);
-            Glide.with(context).applyDefaultRequestOptions(placeHolder).load(image_uri).into(profile_pic);
-
+            Glide.with(context).applyDefaultRequestOptions(placeHolder).load(image_uri).thumbnail(
+                    //loads the thumbnail if the image has not loaded first
+                    Glide.with(context).load(thumb)
+            ).into(profile_pic);
 
         }
 

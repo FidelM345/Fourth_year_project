@@ -20,6 +20,8 @@ public class Alert_Read extends AppCompatActivity {
        alert_content = findViewById(R.id.alert_content);
        imageView = findViewById(R.id.forum_image);
 
+
+
        getIcomingExtra();
     }
 

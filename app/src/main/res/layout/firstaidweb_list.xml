@@ -2,7 +2,7 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/emergency_layout"
+    android:id="@+id/firstaidweb_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     tools:layout_editor_absoluteY="25dp">
@@ -11,17 +11,17 @@
     <ImageView
         android:id="@+id/profile_pic"
         android:layout_width="72dp"
-        android:layout_height="42dp"
+        android:layout_height="52dp"
         android:layout_margin="6dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/redcross"
+        android:src="@drawable/poisons"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/ambulance_name"
+        android:id="@+id/web_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -33,9 +33,8 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/ambulance_delete"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_gravity="center_vertical"
         android:layout_margin="6dp"
         android:layout_marginBottom="8dp"

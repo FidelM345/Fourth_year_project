@@ -1,5 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    
+    <string-array name="array_bleeding_problem">
+        <item>Nose Bleeding</item>
+        <item>Eye injury</item>
+        <item>Bruising</item>
+        <item>Bleeding from Ears</item>
+
+    </string-array>
+
+
+   //nose bleeding
+    <string name="nosebleed_priority_content">
+    &#8226;To control bleeding.\n
+    &#8226;To maintain an open airway.
+ </string>
+    <string name="nosebleed_treatment_content">
+   &#8226; Advice the victim to sit upright and lean forward. This helps to reduce blood pressure in
+        the veins of the nose hence discouraging further bleeding.\n\n
+ &#8226;Pinch the victim\'s nose using the thumb and index finger to shut the nostrils.
+        During this period the patient should breathe through the mouth.\n\n
+ &#8226;Give the victim a tissue or a piece of clean cloth to wipe up any dribbling.\n\n
+ &#8226;Pinch the nose for a period between 5 to 10 minutes.\n\n
+ &#8226;During this period, advice him not to speak, swallow, cough, spit or sneeze because he may disturb
+        blood clots that have formed in the nose.\n\n
+ &#8226;After the period has elapsed, ask the patient to release the
+        pressure and if bleeding has not stopped, reapply the pressure for two further periods of ten minutes each.\n\n
+ &#8226;To avoid re-bleeding, advice the victim not to bend down for several hours or blow their
+        nose after the bleeding episode.\n\n
+ &#8226;During this period, the victim should always keep their head higher than the level of their heart.\n\n\n
+
+
+    </string>
+
+    //Eye injury
+    <string name="eye_priority_content">
+   &#8226;Urgently transfer the victim to a hospital.
+
+ </string>
+    <string name="eye_treatment_content">
+   &#8226;Help the victim to lie on his or her back and hold his or her head to keep it as still ad possible.\n\n
+   &#8226;Instruct the patient to keep both eyes still since movement of uninfected eye will cause movement of the
+        affected causing further damage and pain.\n\n
+   &#8226;Ask the victim to hold a sterile dressing over the injured eye or
+        you can secure the dressing in place with a bandage.\n\n
+   &#8226;Transfer the victim to a hospital.\n\n
+   &#8226;<b>DO NOT</b> attempt to remove an embedded foreign object in the eye.\n\n\n
+
+
+    </string>
+
+
+    //Bruising
+    <string name="bruising_priority_content">
+   &#8226;Reduce the flow of blood to the injured area so as to minimize swelling.
+
+ </string>
+    <string name="bruising_treatment_content">
+ &#8226;Raise the injured area above the level of the heart if possible. This keeps blood from pooling in the bruised tissue.\n
+ &#8226;Apply an ice pack wrapped in a towel for about 5 to 10 minutes. Do not apply the ice directly on the skin.\n
+ &#8226;Rest the bruised area and avoid over working muscles around the site of the bruise.\n
+ &#8226;Take <b>OCT</b> (over-the-counter) pain relievers such as ibuprofen to relief pain and reduce swelling.\n\n
+
+        <b>See the doctor when:\n\n</b>
+
+ &#8226;You are still experiencing pain 3 days after a minor injury.\n
+ &#8226;You notice painful swelling in the bruised area.\n
+ &#8226;You are experiencing abnormal bleeding elsewhere such as nose or gums.\n
+ &#8226;Suddenly being bruised and have no history of bruising.\n
+ &#8226;Have frequent, large painful bruises especially if they appear on your face or back.\n
+ &#8226;Have a family history of easy bruising or bleeding.\n\n\n
+
+    </string>
+
+
+    //Ear injury
+    <string name="ear_priority_content">
+   &#8226;Urgent transfer the victim to a hospital.\n
+
+ </string>
+    <string name="ear_treatment_content">
+
+    &#8226;Gently place a sterile gauze or pad over the ear and  <b>NOT</b> inside the victim\'s ear.\n\n
+    &#8226;Help the victim to lie down on the side with the affected ear facing down so as to allow blood and fluids to drain away.\n\n
+    &#8226;Do not allow the victim to fall asleep, make them calm and relaxed yet awake by asking them questions and reassuring them.\n\n
+    &#8226;Call for an ambulance for urgent medical help.\n\n\n
+</string>
+
 </resources>

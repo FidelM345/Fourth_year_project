@@ -12,16 +12,20 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+
+import static com.basgeekball.awesomevalidation.ValidationStyle.BASIC;
 
 public class Register extends AppCompatActivity implements View.OnClickListener {
     EditText reg_email,reg_password,reg_confirm;
     Button reg_register;
     TextView login_btn;
     ProgressBar progressBar;
+    AwesomeValidation mAwesomeValidation;
 
     FirebaseAuth mAuth;
 
@@ -31,6 +35,11 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
         setContentView(R.layout.activity_register);
 
         mAuth=FirebaseAuth.getInstance();
+        mAwesomeValidation = new AwesomeValidation(BASIC);//setting type and initiating
+        //form validation
+
+
+        mAwesomeValidation.addValidation(Register.this, R.id.reg_password, R.id.reg_confirm, R.string.err_password_confirmation);
 
         reg_email=findViewById(R.id.reg_email);
         reg_password=findViewById(R.id.reg_password);
@@ -40,6 +49,8 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
         progressBar =findViewById(R.id.reg_progressBar);
 
         progressBar.setVisibility(View.INVISIBLE);
+
+
 
         reg_register.setOnClickListener(this);
         login_btn.setOnClickListener(this);
@@ -51,6 +62,8 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
         switch(v.getId()){
 
             case R.id.reg_btn_reg:
+
+                mAwesomeValidation.validate();
 
                 methodRegister();
 
@@ -92,6 +105,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
                         if (task.isSuccessful()){
                             progressBar.setVisibility(View.INVISIBLE);
                             gotoSetupActivity();
+                            finish();
                         }
                         else {
                             progressBar.setVisibility(View.INVISIBLE);
@@ -103,8 +117,12 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
                 });
 
             }else {
-                Toast.makeText(this, "Please enter a Valid Password", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Please re-enter password ", Toast.LENGTH_LONG).show();
             }
+        }else{
+            Toast.makeText(this, "Please Ensure all the three text fields have been filled before " +
+                    "pressing register button ", Toast.LENGTH_LONG).show();
+
         }
     }
 

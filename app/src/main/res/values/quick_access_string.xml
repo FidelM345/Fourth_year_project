@@ -1,2 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+
+    <string-array name="quick_access">
+
+        //cpr
+        <item>General CPR Tips</item>
+        <item>Adult CPR</item>
+        <item>Child CPR</item>
+        <item>Infant CPR</item>
+        <item>Recovery Position</item>
+
+        //respiratory
+        <item>Adult and Child Chocking</item>
+        <item>Infant Chocking</item>
+        <item>Chest Wounds</item>
+        <item>Asthma</item>
+        <item>Fume inhalation</item>
+
+        ///poison
+        <item>Food Poisoning</item>
+        <item>Swallowed Poison</item>
+        <item>Alcohol Poisoning</item>
+
+        //bites
+
+        <item>Snake Bites</item>
+        <item>Spider Bites</item>
+        <item>Bee and Wasp stings</item>
+        <item>Jelly sting</item>
+        <item>Animal Bites</item>
+
+        //bleeding
+        <item>Nose Bleeding</item>
+        <item>Eye injury</item>
+        <item>Bruising</item>
+        <item>Bleeding from Ears</item>
+
+        //circulatory
+        <item>Heart Attack</item>
+        <item>Angina Pectoris</item>
+        <item>Fainting</item>
+        <item>Shock</item>
+
+
+        //heat
+        <item>Minor Burns and Scalds</item>
+        <item>Electric Burns</item>
+        <item>Chemical Burns</item>
+        <item>Surn Burns</item>
+        <item>Hypothermia</item>
+
+        //head
+        <item>Seizures</item>
+        <item>Stroke</item>
+        <item>Cerebral compression</item>
+
+    </string-array>
+
+
+
+
+
+
+</resources>

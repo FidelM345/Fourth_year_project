@@ -1,2 +1,168 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+
+    <string-array name="array_cpr1_problem">
+        <item>General CPR Tips</item>
+        <item>Adult CPR</item>
+        <item>Child CPR</item>
+        <item>Infant CPR</item>
+        <item>Recovery Position</item>
+    </string-array>
+
+    //general cpr tips
+    <string name="cpr_general">
+        <u>  CPR categories include:</u>
+    </string>
+
+    <string name="cpr_general_content">
+
+&#8226; <b>Untrained</b> - If you are not trained in CPR, then provide hands-only CPR. That is,
+        uninterrupted chest compression of about 100 times a minute until the medical team arrives.\n\n
+&#8226;<b>Trained</b> - If you are well trained and confident in your ability,
+        begin with about 30 chest compression before checking the airway and giving rescue breaths.\n\n
+&#8226;<b>Trained but rusty</b> - If you have previously received CPR training
+        but not confident in your abilities, then just do chest compression at a rate of about 100 times a minute.\n\n\n
+
+    </string>
+
+
+    //adult cpr tips
+    <string name="adultcpr_about_content">
+       Allways use the acronym <b>CAB</b> - Compression, Airway Breathing recommended by American Heart Association,
+        to easily remember the steps for performing <b>CPR</b>.\n\n
+     <b>NOTE</b>: If alone with the victim, perform <b>CPR</b> for about 2 minutes which consists of about 5 cycles of 30
+        chest compression and 2 breaths each before calling your local emergency number.\n\n
+    </string>
+
+
+    <string name="adultcpr_compression">
+        <u>Compression</u>
+
+    </string>
+
+
+    <string name="adultcpr_compression_content">
+ &#8226;Place the victim on a firm surface on his or her back.\n\n
+&#8226;Kneel next to the victim\'s neck and shoulders.\n\n
+&#8226;Place the heal of one hand over the center of the person\'s chest between the nipples.\n\n
+&#8226;Place your other hand on top of the fires hand and keep your elbows straight and position your shoulders directly above your hands.\n\n
+&#8226;Use your upper body weight and not just your arms as you push straight down on the chest approximately 5 centimeters.\n\n
+&#8226;Push hard at a rate of about 100 compressions a minute.\n\n
+&#8226;If you are not trained in performing CPR continue with the chest compression until you see
+        signs of movement or until the emergency medical team arrives.\n\n
+&#8226;If you are trained in <b>CPR</b>, go on to checking the airway and rescue breathing.\n\n
+
+    </string>
+
+    <string name="adultcpr_airway">
+         <u>Airway</u>
+    </string>
+
+    <string name="adultcpr_airway_content">
+&#8226;If you are trained in performing <b>CPR</b> and have performed 30 chest compressions, put your
+        palm on the person\'s forehead and gently
+        tilt the head back. Then with the other hand, gently lift the chin forward to open the airway.\n\n
+&#8226;Check for normal breathing for about 10 seconds on your cheek and ears.
+        Grasping should not be considered to be normal breathing.\n\n
+&#8226;If the victim is still not breathing normally and you are trained in <b>CPR</b> then begin mouth-to-mouth breathing.
+        If untrained skip the mouth-to-mouth breathing and continue with chest compression.\n\n
+    </string>
+
+
+    <string name="adultcpr_breathing">
+         <u>Breathing</u>
+    </string>
+
+    <string name="adultcpr_breathing_content">
+&#8226;Rescue breathing can be mouth to mouth or mouth to nose if the victim\'s mouth is seriously injured or cannot be opened.\n\n
+&#8226;With the air way opened, pinch the nostrils shut for mouth to mouth breathing and cover the person\'s mouth with yours making a seal.\n\n
+&#8226;Prepare to give 2 rescue breaths. The first breath last for about 1 second and observe the chest to see whether it rises.\n\n
+&#8226;If it does not rise, give the second rescue breath.\n\n
+&#8226;Resume chest compression to restore circulation.\n\n
+&#8226;If the victim has not begun moving after 5 cycles an Automated External Defibrillator <b>(AED)</b> can be used.\n\n
+&#8226;If the <b>AED</b> is not available, continue with <b>CPR</b> until the victim shows signs of movement or the emergency medical team arrives.\n\n\n
+</string>
+
+
+
+    //child cpr
+    <string name="childcpr_treatment_content">
+        <b>The steps for giving CPR to a child aged 1-8 years are the same as that of adults except for
+            the following differences:\n\n</b>
+
+&#8226;Perform 5 cycles of compressions and breaths on the child for about 2 minutes.\n\n
+&#8226;Call your local emergency number.\n\n
+&#8226;Use only one hand to perform the chest compression.\n\n
+&#8226;When performing Rescue Breaths, breathe more gently.\n\n
+&#8226;Perform 30 compressions followed by 2 breaths which makes one cycle.\n\n
+        This compressions-breath rate I the same as is used in adults. After the 2 breaths, immediately begin the next cycle.\n\n
+&#8226;After the 5 cycles of the CPR and there is no response from the victim an AED can be used.\n\n
+&#8226;If the AED is not available, continue with CPR until the victim shows the
+        signs of movement or the emergency medical team arrives.\n\n\n
+</string>
+
+
+
+    //infant cpr tips
+    <string name="infantcpr_about_content">
+      Use the acronym <b>CAB</b> - Compression, Airway, Breathing to easily remember the steps for performing CPR.
+<b>NOTE:</b> If alone with the victim, perform CPR for about 2 minutes which consists of about
+        5 cycles of 30 chest compression and 2 breaths each before calling your local emergency number.\n\n
+    </string>
+
+
+    <string name="infantcpr_compression_content">
+ &#8226;Place the baby on a firm, flat surface e.g. a table or floor.\n\n
+&#8226;Imagine a horizontal line drawn between the baby\'s nipples.\n\n
+&#8226;Place 2 fingers of one hand just below the imaginary line, in the centre of the chest.\n\n
+&#8226;Gently compress the chest about 4 centimeters at a rate of 100 compressions a minute.\n\n
+    </string>
+
+
+    <string name="infantcpr_airway_content">
+&#8226;If you are trained in performing CPR and have performed 30 chest compressions,
+        put your palm on the baby\'s forehead and gently tilt the head back. \n\n
+        Then with the other hand, gently lift the chin forward to open the airway.\n\n
+&#8226;Check for normal breathing for about 10 seconds on your cheek and ears.\n\n
+&#8226;If the victim is still not breathing normally and you are trained in CPR then begin mouth-to-mouth breathing.
+        If untrained skip the mouth-to-mouth breathing and continue with chest compression.\n\n</string>
+
+
+    <string name="infantcpr_breathing_content">
+&#8226;Cover the baby\'s mouth and nose with your mouth.\n\n
+&#8226;Prepare to give 2 rescue breaths. The first breath last for about 1 second.
+        When giving the breaths, use the strength of your cheeks to deliver gentle puffs
+        of air to slowly breath into the baby\'s mouth, instead of deep breaths from your lungs.\n\n
+&#8226;Observe to see whether the chest rises, if it does not rise, give the second rescue breath.\n\n
+&#8226;Resume chest compression to restore circulation.\n\n
+&#8226;<b>DO NOT</b> use an AED for children younger than 1 year.\n\n
+&#8226;Continue with CPR until the victim shows signs of movement or the emergency medical team arrives.\n\n\n</string>
+
+
+
+
+    //recovery position
+
+
+    <string name="cpr_recovery">
+        <u>Recovery position procedure</u>
+
+</string>
+
+    <string name="cpr_recovery_content">
+A person who is unconscious but is breathing and has no other life threatening condition,
+        should be placed in the recovery position but if you think the person has a spinal injury,
+        do not attempt to move them until the emergency medical team arrives. The steps are as follows:\n\n
+&#8226;With the victim lying on their back, kneel on the floor at their side.\n\n
+&#8226;Place the arm nearest to you at a right angle to the body, with their hand upwards towards the head.\n\n
+&#8226;Tuck their other hand under the side of their head, so that the back of their hand is touching their cheek.\n\n
+&#8226;Bend the knee farthest from you to a right angle.\n\n
+&#8226;Carefully roll the victim onto their side by pulling on the bent knee.\n\n
+&#8226;The top arm should be supporting the head and the bottom arm will support you rolling them too far.\n\n
+&#8226; their airway by gently tilting their head back and lifting their chin.\n\n
+&#8226;Stay with the victim and monitor their condition until the medics arrive at the scene.\n\n\n</string>
+
+
+
+
+</resources>

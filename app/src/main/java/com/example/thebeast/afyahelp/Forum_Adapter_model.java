@@ -8,17 +8,30 @@ public class Forum_Adapter_model extends BlogPostId {
 
     String description,user_id,imageUri, thumbUri,title;
 
+    Long timestamp;
+
 
     public Forum_Adapter_model() {
 
     }
 
-    public Forum_Adapter_model(String description, String user_id, String imageUri, String thumbUri, String title) {
+    public Forum_Adapter_model(String description, String user_id,
+                               String imageUri, String thumbUri, String title,
+                               Long timestamp) {
         this.description = description;
         this.user_id = user_id;
         this.imageUri = imageUri;
         this.thumbUri = thumbUri;
         this.title = title;
+        this.timestamp = timestamp;
+    }
+
+    public Long getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(Long timestamp) {
+        this.timestamp = timestamp;
     }
 
     public String getDescription() {

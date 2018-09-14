@@ -1,9 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<fragment xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<android.widget.RelativeLayout
     xmlns:map="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context=".Heart_Attack">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_myaccount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorPrimary"
+        android:theme="@style/GalaxyZooThemeToolbarDarkOverflow"
+        app:popupTheme="@style/Theme.AppCompat.NoActionBar">
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Angina Attack"
+            android:textColor="@android:color/background_light"
+            android:textSize="18sp"
+            android:textStyle="bold"
+             />
+
+
+
+    </android.support.v7.widget.Toolbar>
+
+
+
+    <fragment
+    android:layout_below="@id/toolbar_myaccount"
     android:id="@+id/map"
-    tools:context=".Ambulance_Location"
-    android:name="com.google.android.gms.maps.SupportMapFragment"/>
+    android:name="com.google.android.gms.maps.SupportMapFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Ambulance_Location" />
+
+
+</android.widget.RelativeLayout>

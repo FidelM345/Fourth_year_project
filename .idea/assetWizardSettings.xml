@@ -34,7 +34,7 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="url" value="jar:file:/home/thebeast/android-studio/plugins/android/lib/android.jar!/images/material_design_icons/communication/ic_phone_black_24dp.xml" />
+                                                <entry key="url" value="jar:file:/home/thebeast/android-studio/plugins/android/lib/android.jar!/images/material_design_icons/action/ic_delete_black_24dp.xml" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -46,8 +46,8 @@
                                     <map>
                                       <entry key="cropped" value="true" />
                                       <entry key="iconShape" value="NONE" />
-                                      <entry key="imageAsset" value="$USER_HOME$/Downloads/project-pics/locationicon.jpeg" />
-                                      <entry key="outputName" value="emergency_icon" />
+                                      <entry key="imageAsset" value="$USER_HOME$/Desktop/project images/cpr/ageicon.png" />
+                                      <entry key="outputName" value="delete_icon" />
                                     </map>
                                   </option>
                                 </PersistentState>

@@ -53,33 +53,15 @@ public class BloodActivity extends AppCompatActivity {
 
         toolbar=findViewById(R.id.blood_toolbar);
         setSupportActionBar(toolbar);
-
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Blood Donors");
 
         bloglist = new ArrayList<>();
         userlist=new ArrayList<>();
 
-
         blogRecycler_adapter= new BlogRecycler_Adapter(bloglist,userlist,this);//initializing adapter
 
         recyclerView = findViewById(R.id.blog_recycler_view);
-
-
-        floatingActionButton=findViewById(R.id.add_registration);
-        floatingActionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-
-
-                Intent intent=new Intent(BloodActivity.this,Donor_Registration.class);
-                startActivity(intent);
-
-
-
-            }
-        });
-
-
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         //recyclerView.setHasFixedSize(true);
@@ -97,9 +79,7 @@ public class BloodActivity extends AppCompatActivity {
         }
 
 
-
         }
-
 
     public void showAllgroups(){
 
@@ -188,6 +168,7 @@ public class BloodActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.group_all) {
+            //displays all blood donors
             bloglist.clear();
          showAllgroups();
 
@@ -195,6 +176,7 @@ public class BloodActivity extends AppCompatActivity {
         }
 
         if (id == R.id.group_a) {
+            //displays blood type A
             bloglist.clear();
             maxo("A");
             blogRecycler_adapter.notifyDataSetChanged();//notify adapter when data set is changed
@@ -202,7 +184,7 @@ public class BloodActivity extends AppCompatActivity {
         }
         if (id == R.id.group_b) {
             bloglist.clear();
-
+            //displays blood Type B
             maxo("B");
             blogRecycler_adapter.notifyDataSetChanged();//notify adapter when data set is changed
 
@@ -210,7 +192,7 @@ public class BloodActivity extends AppCompatActivity {
         }
         if (id == R.id.group_l) {
             bloglist.clear();
-
+            //displays blood type O
             maxo("O");
 
             blogRecycler_adapter.notifyDataSetChanged();//notify adapter when data set is changed
@@ -222,6 +204,7 @@ public class BloodActivity extends AppCompatActivity {
         if (id == R.id.group_ab) {
             bloglist.clear();
 
+            //displays blood type AB
             maxo("AB");
             blogRecycler_adapter.notifyDataSetChanged();//notify adapter when data set is changed
 
@@ -232,56 +215,6 @@ public class BloodActivity extends AppCompatActivity {
         return true;
     }
 
-
-
-
-
-    private void loadmorePost() {
-        Query firstQuery=firestore.collection("user_table")
-                .orderBy("fname", Query.Direction.DESCENDING).limit(3);
-
-
-        listenerRegistration = firstQuery.addSnapshotListener(new EventListener<QuerySnapshot>() {
-            @Override
-            public void onEvent(QuerySnapshot queryDocumentSnapshots, FirebaseFirestoreException e) {
-
-
-                if (!queryDocumentSnapshots.isEmpty()){
-
-
-                    for (DocumentChange documentChange : queryDocumentSnapshots.getDocumentChanges()) {
-
-                        if (documentChange.getType() == DocumentChange.Type.ADDED) {
-
-                            //converts data feteched from firebase into a form similar to the model class created
-                            BlogPost_model_class blogPost_model_class = documentChange.getDocument().toObject(BlogPost_model_class.class);
-
-                            bloglist.add(blogPost_model_class); //data added to the List data structure the process is repeated
-                            //Every time new data is received
-                            blogRecycler_adapter.notifyDataSetChanged();//notify adapter when data set is changed
-
-
-
-                        }
-
-                    }
-
-                }else {
-
-                    String error=e.getMessage().toString();
-
-                    Toast.makeText(BloodActivity.this, "The error is:"+error,Toast.LENGTH_LONG).show();
-
-                    return;
-
-                }
-
-
-            }
-        });
-
-
-    }
 
 
 }

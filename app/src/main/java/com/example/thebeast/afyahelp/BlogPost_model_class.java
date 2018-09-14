@@ -6,23 +6,56 @@ package com.example.thebeast.afyahelp;
 
 public class BlogPost_model_class extends BlogPostId {
 
-    public String fname,lname,imageuri,location,blood_group,weight,age,email,gender;
+    public String fname,lname,imageuri,location,blood_group,email,gender,rhesus,
+            thumburi,phone_no;
 
+    Long age;
+    Long weight;
 
     public BlogPost_model_class() {
     }
 
 
-    public BlogPost_model_class(String fname, String lname, String imageuri, String location, String blood_group, String weight, String age, String email, String gender) {
+    public BlogPost_model_class(String fname, String lname, String imageuri,
+                                String location, String blood_group, String email,
+                                String gender, String rhesus, String thumburi,
+                                String phone_no, Long age, Long weight) {
         this.fname = fname;
         this.lname = lname;
         this.imageuri = imageuri;
         this.location = location;
         this.blood_group = blood_group;
-        this.weight = weight;
-        this.age = age;
         this.email = email;
         this.gender = gender;
+        this.rhesus = rhesus;
+        this.thumburi = thumburi;
+        this.phone_no = phone_no;
+        this.age = age;
+        this.weight = weight;
+    }
+
+    public String getPhone_no() {
+        return phone_no;
+    }
+
+    public void setPhone_no(String phone_no) {
+        this.phone_no = phone_no;
+    }
+
+    public String getThumburi() {
+        return thumburi;
+    }
+
+    public void setThumburi(String thumburi) {
+        this.thumburi = thumburi;
+    }
+
+    public String getRhesus() {
+        return rhesus;
+    }
+
+    public void setRhesus(String rhesus) {
+        this.rhesus = rhesus;
     }
 
     public String getFname() {
@@ -65,19 +98,19 @@ public class BlogPost_model_class extends BlogPostId {
         this.blood_group = blood_group;
     }
 
-    public String getWeight() {
+    public Long getWeight() {
         return weight;
     }
 
-    public void setWeight(String weight) {
+    public void setWeight(Long weight) {
         this.weight = weight;
     }
 
-    public String getAge() {
+    public Long getAge() {
         return age;
     }
 
-    public void setAge(String age) {
+    public void setAge(Long age) {
         this.age = age;
     }
 

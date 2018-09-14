@@ -2,6 +2,7 @@ package com.example.thebeast.afyahelp;
 
 import android.content.Intent;
 import android.speech.tts.TextToSpeech;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -24,7 +25,7 @@ public class Fainting extends AppCompatActivity implements TextToSpeech.OnInitLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fainting);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar4);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_myaccount);
         setSupportActionBar(toolbar);
 
         imageView=findViewById(R.id.youtube_video);
@@ -38,6 +39,30 @@ public class Fainting extends AppCompatActivity implements TextToSpeech.OnInitLi
             public void onClick(View v) {
                 Intent intent = YouTubeStandalonePlayer.createVideoIntent( Fainting.this, YoutubeApiKey_Holder.getApiKey(),"ddHKwkMwNyI",100,true,true);
                 startActivity(intent);
+            }
+        });
+
+        ImageView back_btn=findViewById(R.id.id_backmain);
+
+        back_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent in=new Intent(getApplicationContext(),Circulatory_Problem.class);
+                startActivity(in);
+
+            }
+        });
+
+        FloatingActionButton floatingActionButton=findViewById(R.id.floatingActionButton2);
+
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent in=new Intent(getApplicationContext(),EmergencyLines.class);
+                startActivity(in);
+
             }
         });
 

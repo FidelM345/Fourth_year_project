@@ -2,6 +2,7 @@ package com.example.thebeast.afyahelp;
 
 import android.content.Intent;
 import android.speech.tts.TextToSpeech;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -24,13 +25,12 @@ public class Heart_Attack extends AppCompatActivity implements TextToSpeech.OnIn
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_heart__attack);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar4);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_myaccount);
         setSupportActionBar(toolbar);
 
         imageView=findViewById(R.id.youtube_video);
 
         engine=new TextToSpeech(this,this);//initiallizing the TTS engine
-
 
 
         imageView.setOnClickListener(new View.OnClickListener() {
@@ -41,7 +41,31 @@ public class Heart_Attack extends AppCompatActivity implements TextToSpeech.OnIn
             }
         });
 
-        }
+        ImageView back_btn=findViewById(R.id.id_backmain);
+
+        back_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent in=new Intent(getApplicationContext(),Circulatory_Problem.class);
+                startActivity(in);
+
+            }
+        });
+
+        FloatingActionButton floatingActionButton=findViewById(R.id.floatingActionButton2);
+
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent in=new Intent(getApplicationContext(),EmergencyLines.class);
+                startActivity(in);
+
+            }
+        });
+
+    }
 
     @Override
     public void onInit(int status) {
@@ -53,8 +77,6 @@ public class Heart_Attack extends AppCompatActivity implements TextToSpeech.OnIn
         }
 
     }
-
-
 
 
     private void speak() {
@@ -80,7 +102,6 @@ public class Heart_Attack extends AppCompatActivity implements TextToSpeech.OnIn
 
 
 
-
     }
 
 
@@ -88,7 +109,6 @@ public class Heart_Attack extends AppCompatActivity implements TextToSpeech.OnIn
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.steps_menu, menu);
-
 
         return true;
     }

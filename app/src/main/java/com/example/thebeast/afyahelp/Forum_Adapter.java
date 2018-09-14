@@ -1,19 +1,25 @@
 package com.example.thebeast.afyahelp;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -23,8 +29,11 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.text.DateFormat;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -37,17 +46,16 @@ public class Forum_Adapter extends RecyclerView.Adapter<Forum_Adapter.ViewHolder
 
 
     List<Forum_Adapter_model>bloglist;
-    List<User_model_class>userlist;
     Context context;
     FirebaseFirestore firestore;
     FirebaseAuth mAuth;
     String currentUserId;
 
 
-    public Forum_Adapter(List<Forum_Adapter_model> bloglist,List<User_model_class> userlist) {
+    public Forum_Adapter(List<Forum_Adapter_model> bloglist) {
         //the constructor is receiving data from the list data structure in HomeFragment java class
         this.bloglist=bloglist;
-        this.userlist=userlist;
+
 
 
     }
@@ -77,13 +85,71 @@ public class Forum_Adapter extends RecyclerView.Adapter<Forum_Adapter.ViewHolder
         String image_url=bloglist.get(position).getImageUri();
         String thumb_uri=bloglist.get(position).getThumbUri();
         String title=bloglist.get(position).getTitle();
-        String user_id=bloglist.get(position).getUser_id();
+        final String user_id=bloglist.get(position).getUser_id();
+         Long timestamp=bloglist.get(position).getTimestamp();
 
-        String Fname=userlist.get(position).getFname();
-        String Lname=userlist.get(position).getLname();
-        String image1=userlist.get(position).getImageuri();
 
-         holder.setUserData(image1,Fname,Lname);
+
+        holder.getDate(timestamp);
+
+
+       //loads user details on the posted blog items
+        firestore.collection("user_table").document(user_id).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+
+                if(task.getResult().exists()){
+
+                    String Fname=task.getResult().getString("fname");
+                    String Lname=task.getResult().getString("lname");
+                    String image1=task.getResult().getString("thumburi");
+
+                    holder.setUserData(image1,Fname,Lname);
+
+                }else{
+
+
+
+
+                    firestore.collection("Admin_table").document(user_id).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+
+
+                            if(task.getResult().exists()){
+
+                                String Fname="Admin - "+task.getResult().getString("fname");
+                                String Lname=task.getResult().getString("lname");
+                                String image1=task.getResult().getString("thumburi");
+
+                                holder.setUserData(image1,Fname,Lname);
+
+                            }
+
+
+
+                        }
+                    });
+
+
+
+
+                }
+
+
+
+
+
+
+            }
+        });
+
+
+
+
+
+
+
 
 
 
@@ -350,6 +416,8 @@ public class Forum_Adapter extends RecyclerView.Adapter<Forum_Adapter.ViewHolder
         holder.setBlogImage(image_url,thumb_uri);
 
 
+
+
     }
 
     @Override
@@ -360,7 +428,7 @@ public class Forum_Adapter extends RecyclerView.Adapter<Forum_Adapter.ViewHolder
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         View mView;
-        TextView description,title,like_count,comment_count,unlike_count;
+        TextView description,title,like_count,comment_count,unlike_count,Blog_date;
         ImageView imageView,like_btn,comment_btn,unlike_btn;
         TextView profile_name;
         CircleImageView profile_pic;
@@ -378,6 +446,7 @@ public class Forum_Adapter extends RecyclerView.Adapter<Forum_Adapter.ViewHolder
 
             like_btn=mView.findViewById(R.id.blog_like);
 
+
             unlike_btn=mView.findViewById(R.id.blog_unlike_btn12);
 
             like_count=mView.findViewById(R.id.blog_count);
@@ -386,6 +455,7 @@ public class Forum_Adapter extends RecyclerView.Adapter<Forum_Adapter.ViewHolder
             comment_count=mView.findViewById(R.id.comment_count);
             comment_btn=mView.findViewById(R.id.comment_image_btn);
 
+            Blog_date=mView.findViewById(R.id.blog_date);
 
         }
 
@@ -404,6 +474,11 @@ public class Forum_Adapter extends RecyclerView.Adapter<Forum_Adapter.ViewHolder
             title.setText(title1);
             description.setText(descriptionText);
         }
+
+
+
+
+
 
 
         public void setBlogImage(String downloadUri,String Thumburi){
@@ -500,7 +575,18 @@ public class Forum_Adapter extends RecyclerView.Adapter<Forum_Adapter.ViewHolder
 
         }
 
+        public void getDate(Long timestamp) {
+            Calendar calendar=Calendar.getInstance(Locale.getDefault());
+            calendar.setTimeInMillis(timestamp*1000);
 
+            String date= DateFormat.getDateTimeInstance().format(calendar.getTime()).toString();
+            //String date= DateFormat.format("dd-MM-yyyy HH:mm",calendar).toString();
+
+
+
+            Blog_date.setText(""+date);
+
+        }
 
 
     }

@@ -28,7 +28,7 @@ public class Forum_page extends AppCompatActivity implements View.OnClickListene
     Toolbar toolbar;
     Button post_button;
     EditText post_description, post_title;
-    ImageView post_image;
+    ImageView post_image,back_btn;
     Uri mainImageUri = null;
     ProgressBar progressBar;
     FirebaseFirestore firestore;
@@ -91,6 +91,12 @@ public class Forum_page extends AppCompatActivity implements View.OnClickListene
         floatingActionButton.setOnClickListener(this);
 
 
+        back_btn=findViewById(R.id.id_backmain);
+
+
+        back_btn.setOnClickListener(this);
+
+
 
 
     }
@@ -111,7 +117,21 @@ public class Forum_page extends AppCompatActivity implements View.OnClickListene
             case R.id.add_post:
                 Intent intent=new Intent(Forum_page.this,Forum_post.class);
                 startActivity(intent);
+                break;
+            case R.id.id_backmain:
+                Intent intent1=new Intent(Forum_page.this,MainActivity.class);
+                startActivity(intent1);
+                break;
 
         }
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+        Intent intent=new Intent(Forum_page.this,MainActivity.class);
+        startActivity(intent);
+    }
 }
+

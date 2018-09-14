@@ -11,4 +11,10 @@
         android:orderInCategory="100"
         android:title="Stop TTS"
         app:showAsAction="never" />
+
+    <item
+        android:id="@+id/home_tts"
+        android:orderInCategory="100"
+        android:title="Home"
+        app:showAsAction="never" />
 </menu>

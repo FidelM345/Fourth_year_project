@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<android.widget.LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.widget.LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -11,21 +11,50 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:background="@color/colorPrimary"
-        android:layout_weight="1"
+        android:layout_weight="3"
         android:layout_height="0dp">
 
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar_myaccount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="@color/colorPrimary"
+            android:theme="@style/GalaxyZooThemeToolbarDarkOverflow"
+            app:popupTheme="@style/Theme.AppCompat.NoActionBar">
 
-        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+            <TextView
+                android:id="@+id/toolbar_title"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="Profile SetUp"
+                android:textColor="@android:color/background_light"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="16dp" />
+
+        </android.support.v7.widget.Toolbar>
+
+
+        <ImageView
             android:id="@+id/profile_circular"
-            android:layout_width="120dp"
-            android:layout_height="0dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="224dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/profile_placeholder"
-            app:civ_border_color="#FFFFFFFF"
-            app:civ_border_width="5dp" />
+            android:src="@drawable/addphoto_placeholder" />
+
+        <ProgressBar
+            android:id="@+id/profile_progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:visibility="invisible" />
+
+
 
 
     </android.widget.LinearLayout>
@@ -43,16 +72,10 @@
             xmlns:android="http://schemas.android.com/apk/res/android"
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:paddingTop="8dp"
+            android:paddingTop="1dp"
             android:layout_height="match_parent">
 
-            <ProgressBar
-                android:id="@+id/profile_progressBar"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:indeterminate="true"
-                android:visibility="invisible" />
+
 
 
             <LinearLayout
@@ -70,6 +93,7 @@
 
 
                 <EditText
+                    android:inputType="textPersonName"
                     android:id="@+id/profile_fname"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -95,6 +119,7 @@
 
 
                 <EditText
+                    android:inputType="textPersonName"
                     android:id="@+id/profile_lname"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -133,43 +158,20 @@
 
 
                 <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/btn_location"
+                    android:id="@+id/id_birth"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_gravity="center_vertical"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/locationicon" />
-
-
-                <EditText
-                    android:id="@+id/profile_gps"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Click icon to take your location.."
-                    android:inputType="phone" />
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_margin="8dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_gravity="center_vertical"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/ageicon" />
+                    android:src="@mipmap/ageicon" />
 
 
                 <EditText
                     android:id="@+id/profile_age"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Enter Age..."
+
+                    android:hint="Click icon to select date of birth..."
                     android:inputType="number" />
 
 
@@ -197,7 +199,34 @@
 
 
             </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="2dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center_vertical"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/province_icon" />
+
+                <Spinner
+                    android:prompt="@string/provine_name"
+                    android:id="@+id/provine_name"
+                    style="@style/spinner_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    android:entries="@array/array_province_name"
+                    android:spinnerMode="dialog" />
+
+
+
+
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_marginTop="2dp"

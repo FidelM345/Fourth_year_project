@@ -5,21 +5,18 @@
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
+
         <item
-            android:id="@+id/nav_camera"
-            android:icon="@drawable/homeicon"
-            android:title="Home" />
-        <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/nav_blood"
             android:icon="@drawable/bloodicon"
             android:title="Blood donation" />
         <item
             app:actionViewClass="android.widget.TextView"
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/nav_forum"
             android:icon="@drawable/forumicon"
             android:title="First aid Forum" />
         <item
-            android:id="@+id/nav_manage"
+            android:id="@+id/nav_first_aid_kit"
             android:icon="@drawable/firstaidkit"
             android:title="First Aid kit" />
 
@@ -37,7 +34,7 @@
 
 
         <item
-            android:id="@+id/nav_nearby"
+            android:id="@+id/nav_nearby_hospital"
             android:icon="@drawable/maphosicon"
             android:title="Nearby Health facilities " />
 
@@ -53,11 +50,11 @@
     <item android:title="Communicate">
         <menu>
             <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/myprofile"
+                android:id="@+id/nav_profile"
+                android:icon="@drawable/homeicon"
                 android:title="My Profile" />
             <item
-                android:id="@+id/nav_send"
+                android:id="@+id/nav_logout"
                 android:icon="@drawable/signout"
                 android:title="Sign Out" />
         </menu>
