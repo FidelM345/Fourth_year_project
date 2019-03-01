@@ -1,6 +1,7 @@
 package com.example.thebeast.afyahelp.Model;
 
 public class Results {
+   // private Photo photos;
 
     private String id;
 
@@ -23,6 +24,14 @@ public class Results {
     private Opening_hours opening_hours;
 
     private Geometry geometry;
+
+    /*public Photo getPhotos() {
+        return photos;
+    }
+
+    public void setPhotos(Photo photos) {
+        this.photos = photos;
+    }*/
 
     public String getId ()
     {

@@ -229,6 +229,7 @@
     </string>
     <string name="title_activity_ambulance__location">Map</string>
     <string name="title_activity_street_view">Map</string>
+    <string name="title_activity_directions_api">Map</string>
 
 
 </resources>

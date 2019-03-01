@@ -294,6 +294,8 @@ public class MainActivity extends AppCompatActivity
         }else if (id == R.id.nav_first_aid_kit) {
             Intent intent=new Intent(MainActivity.this,FirstAid_Kit.class);
             startActivity(intent);
+          /*   Intent intent=new Intent(MainActivity.this,DirectionsApi.class);
+             startActivity(intent);*/
         }
 
 

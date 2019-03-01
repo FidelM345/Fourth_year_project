@@ -25,7 +25,6 @@ class CustomAdapter extends ArrayAdapter<String>{
 
 
 
-
     public CustomAdapter(@NonNull Context context, String[]description, Integer[] imgid1) {
         super(context,R.layout.recycle_view, description);
 
@@ -53,16 +52,12 @@ class CustomAdapter extends ArrayAdapter<String>{
         CircleImageView circleImageView=(CircleImageView)customView.findViewById(R.id.profile_image1);
 
 
-
-
-
         textView1.setText(description[position]);
 
         circleImageView.setImageResource(imgid[position]);
 
 
         return customView;
-
 
     }
 

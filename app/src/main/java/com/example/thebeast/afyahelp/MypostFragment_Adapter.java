@@ -200,7 +200,6 @@ public class MypostFragment_Adapter extends RecyclerView.Adapter<MypostFragment_
 
 
 
-
         public void setImageTitle(String Thumburi,String title1){
 
               title=mView.findViewById(R.id.mypost_title);
@@ -237,9 +236,6 @@ public class MypostFragment_Adapter extends RecyclerView.Adapter<MypostFragment_
                                     bloglist.remove(position);
                                     notifyDataSetChanged();
                                     Toast.makeText(context, "Item has been deleted successfully", Toast.LENGTH_LONG).show();
-
-
-
                                 }
                             });
                 }

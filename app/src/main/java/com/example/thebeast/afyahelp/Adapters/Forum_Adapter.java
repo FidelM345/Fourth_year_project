@@ -1,25 +1,22 @@
-package com.example.thebeast.afyahelp;
+package com.example.thebeast.afyahelp.Adapters;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.example.thebeast.afyahelp.Forum_Adapter_model;
+import com.example.thebeast.afyahelp.R;
+import com.example.thebeast.afyahelp.comment;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -28,6 +25,7 @@ import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.squareup.picasso.Picasso;
 
 import java.text.DateFormat;
 import java.util.Calendar;
@@ -56,7 +54,10 @@ public class Forum_Adapter extends RecyclerView.Adapter<Forum_Adapter.ViewHolder
         //the constructor is receiving data from the list data structure in HomeFragment java class
         this.bloglist=bloglist;
 
+        firestore= FirebaseFirestore.getInstance();
+        mAuth= FirebaseAuth.getInstance();
 
+        currentUserId=mAuth.getCurrentUser().getUid();
 
     }
 
@@ -66,10 +67,7 @@ public class Forum_Adapter extends RecyclerView.Adapter<Forum_Adapter.ViewHolder
         //it inflates the custom made Layout file for list items
         View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.forum_list,parent,false);
         context=parent.getContext();
-        firestore= FirebaseFirestore.getInstance();
-        mAuth= FirebaseAuth.getInstance();
 
-        currentUserId=mAuth.getCurrentUser().getUid();
 
         return new ViewHolder(view);
     }
@@ -77,7 +75,7 @@ public class Forum_Adapter extends RecyclerView.Adapter<Forum_Adapter.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull final Forum_Adapter.ViewHolder holder, int position) {
 
-        holder.setIsRecyclable(false);//makes the recycler views not to be recycled
+         //holder.setIsRecyclable(false);//makes the recycler views not to be recycled
         //gets data stored in the bloglist List data structure, the getDescription model class is found in the model class
 
         final String blogpostid=bloglist.get(position).BlogPostIdString;//gets the blog post id
@@ -86,11 +84,12 @@ public class Forum_Adapter extends RecyclerView.Adapter<Forum_Adapter.ViewHolder
         String thumb_uri=bloglist.get(position).getThumbUri();
         String title=bloglist.get(position).getTitle();
         final String user_id=bloglist.get(position).getUser_id();
-         Long timestamp=bloglist.get(position).getTimestamp();
+        Long timestamp=bloglist.get(position).getTimestamp();
 
 
 
         holder.getDate(timestamp);
+
 
 
        //loads user details on the posted blog items
@@ -98,41 +97,42 @@ public class Forum_Adapter extends RecyclerView.Adapter<Forum_Adapter.ViewHolder
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
 
-                if(task.getResult().exists()){
+                try {
 
-                    String Fname=task.getResult().getString("fname");
-                    String Lname=task.getResult().getString("lname");
-                    String image1=task.getResult().getString("thumburi");
+                    if(task.getResult().exists()){
 
-                    holder.setUserData(image1,Fname,Lname);
+                        String Fname=task.getResult().getString("fname");
+                        String Lname=task.getResult().getString("lname");
+                        String image1=task.getResult().getString("thumburi");
 
-                }else{
+                        holder.setUserData(image1,Fname,Lname);
 
-
-
-
-                    firestore.collection("Admin_table").document(user_id).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                        @Override
-                        public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                    }else{
 
 
-                            if(task.getResult().exists()){
+                        firestore.collection("Admin_table").document(user_id).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                            @Override
+                            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
 
-                                String Fname="Admin - "+task.getResult().getString("fname");
-                                String Lname=task.getResult().getString("lname");
-                                String image1=task.getResult().getString("thumburi");
 
-                                holder.setUserData(image1,Fname,Lname);
+                                if(task.getResult().exists()){
+
+                                    String Fname="Admin - "+task.getResult().getString("fname");
+                                    String Lname=task.getResult().getString("lname");
+                                    String image1=task.getResult().getString("thumburi");
+
+                                    holder.setUserData(image1,Fname,Lname);
+
+                                }
 
                             }
+                        });
 
 
-
-                        }
-                    });
+                    }
 
 
-
+                }catch (Exception e){
 
                 }
 
@@ -143,14 +143,6 @@ public class Forum_Adapter extends RecyclerView.Adapter<Forum_Adapter.ViewHolder
 
             }
         });
-
-
-
-
-
-
-
-
 
 
         //changes the color of the like button
@@ -194,7 +186,6 @@ public class Forum_Adapter extends RecyclerView.Adapter<Forum_Adapter.ViewHolder
                 }
 
                 if (!queryDocumentSnapshots.isEmpty()){
-
                     //if the Likes collection is not empty do the following
 
                     int number_of_likes=queryDocumentSnapshots.size();
@@ -203,7 +194,6 @@ public class Forum_Adapter extends RecyclerView.Adapter<Forum_Adapter.ViewHolder
 
                 }
                 else {
-
                     //if the Likes collection if empty do the following
                     holder.updateLike_Count(0);
 
@@ -301,11 +291,9 @@ public class Forum_Adapter extends RecyclerView.Adapter<Forum_Adapter.ViewHolder
                                      holder.unlike_streamline(blogpostid);
 
 
-
                                  } else {
 
                                      firestore.collection("Forum_Posts").document(blogpostid).collection("Likes").document(currentUserId).delete();
-
 
                                  }
                              }
@@ -347,7 +335,6 @@ public class Forum_Adapter extends RecyclerView.Adapter<Forum_Adapter.ViewHolder
 
 
                                 firestore.collection("Forum_Posts").document(blogpostid).collection("Unlikes").document(currentUserId).delete();
-
 
                             }
                         }
@@ -488,11 +475,16 @@ public class Forum_Adapter extends RecyclerView.Adapter<Forum_Adapter.ViewHolder
             RequestOptions placeHolder=new RequestOptions();
             placeHolder.placeholder(R.drawable.profile_placeholder);
 
+
             Glide.with(context).applyDefaultRequestOptions(placeHolder).load(downloadUri).thumbnail(
                     //loads the thumbnail if the image has not loaded first
                     Glide.with(context).load(Thumburi)
             ).into(imageView);
-
+//
+//            Picasso.get()
+//                    .load(downloadUri)
+//                    .placeholder(R.drawable.profile_placeholder)
+//                    .into(imageView);
 
         }
 
@@ -510,11 +502,9 @@ public class Forum_Adapter extends RecyclerView.Adapter<Forum_Adapter.ViewHolder
             profile_pic=mView.findViewById(R.id.mypost_image);
 
             profile_name.setText(Fname+" "+Lname);
-
             RequestOptions placeHolder=new RequestOptions();
             placeHolder.placeholder(R.drawable.profile_placeholder);
             Glide.with(context).setDefaultRequestOptions(placeHolder).load(image).into(profile_pic);
-
 
 
         }

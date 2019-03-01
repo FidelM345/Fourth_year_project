@@ -3,26 +3,30 @@ package com.example.thebeast.afyahelp;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
+import android.view.animation.OvershootInterpolator;
 
+import com.example.thebeast.afyahelp.Adapters.Forum_Adapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.ListenerRegistration;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
-import com.malinskiy.superrecyclerview.SuperRecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter;
+import jp.wasabeef.recyclerview.animators.SlideInUpAnimator;
 
 
 /**
@@ -35,7 +39,9 @@ public class HomeFragment extends Fragment {
     List<User_model_class> userlist; //list of type blog post model class.
 
     FirebaseFirestore firestore;
-    Forum_Adapter forum_adapter;
+   Forum_Adapter forum_adapter;
+
+
     FirebaseAuth mAuth;
     DocumentSnapshot lastVisible;
     Boolean isFirstPageLoad=true;//true when data is loaded for the first time
@@ -45,6 +51,7 @@ public class HomeFragment extends Fragment {
     RecyclerView recyclerView; //Declaring android widget known as a Recyclview used
     //to depict data elements inform of  a list
 
+     ListenerRegistration firestoreListener;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -57,6 +64,8 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_home, container, false);
 
+
+
         mAuth= FirebaseAuth.getInstance(); //initializing Firebase authentication
         firestore= FirebaseFirestore.getInstance(); //initializing Firebase cloud firestore databse
 
@@ -66,7 +75,7 @@ public class HomeFragment extends Fragment {
 
         // Linking the recycler view to its XML definition
         recyclerView=view.findViewById(R.id.blog_recycler_view);
-
+        recyclerView.setNestedScrollingEnabled(false);//allows for smooth scrolling
 
         //blog_list_view=view.findViewById(R.id.blog_recycler_view);
        // blog_list_view.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -76,20 +85,24 @@ public class HomeFragment extends Fragment {
 
        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getActivity());
        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-       recyclerView.setLayoutManager(linearLayoutManager);
 
 
         forum_adapter=new Forum_Adapter(bloglist);//initializing adapter and loading content from
         //the blog list to it
 
+        recyclerView.setHasFixedSize(true);
+        //recyclerView.setItemAnimator(new DefaultItemAnimator());
 
-       // forum_adapter.setHasStableIds(true);
+        recyclerView.setLayoutManager(linearLayoutManager);
+
+       /* AlphaInAnimationAdapter alphaAdapter = new AlphaInAnimationAdapter(forum_adapter);
+        alphaAdapter.setDuration(500);*/
 
         recyclerView.setAdapter(forum_adapter);
 
+
+        
        // blog_list_view.setHasFixedSize(true);
-
-
 
         return view;//returns the inflated view
     }
@@ -103,8 +116,15 @@ public class HomeFragment extends Fragment {
         //Loading content fetched from cloud firestore to the recyclerview.
         dataLoader();
 
+
     }
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        firestoreListener.remove();
+
+    }
 
     public void dataLoader(){
 
@@ -113,7 +133,7 @@ public class HomeFragment extends Fragment {
         //contents on a recycler view.
         Query firstQuery=firestore.collection("Forum_Posts").orderBy("timestamp", Query.Direction.DESCENDING);
 
-        firstQuery.addSnapshotListener(getActivity(),new EventListener<QuerySnapshot>() {
+     firestoreListener=firstQuery.addSnapshotListener(getActivity(),new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(QuerySnapshot queryDocumentSnapshots, FirebaseFirestoreException e) {
 

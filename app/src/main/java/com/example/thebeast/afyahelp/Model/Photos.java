@@ -55,5 +55,5 @@ public class Photos
     {
         return "ClassPojo [photo_reference = "+photo_reference+", height = "+height+", html_attributions = "+html_attributions+", width = "+width+"]";
     }
-
 }
+

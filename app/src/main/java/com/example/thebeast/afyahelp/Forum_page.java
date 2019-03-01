@@ -90,14 +90,9 @@ public class Forum_page extends AppCompatActivity implements View.OnClickListene
         floatingActionButton=findViewById(R.id.add_post);
         floatingActionButton.setOnClickListener(this);
 
-
         back_btn=findViewById(R.id.id_backmain);
 
-
         back_btn.setOnClickListener(this);
-
-
-
 
     }
 
